@@ -264,8 +264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5607a7f62b87e44aab3bc8e13029c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundVolume: {fileID: 0}
-  SoundSource: {fileID: 0}
+  SoundVolume: {fileID: 1058082510}
+  SoundSource: {fileID: 39447740}
 --- !u!1 &248854275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,8 +1048,8 @@ MonoBehaviour:
   Setting: {fileID: 454797146}
   MoveX: 0
   MoveXvalue: 0
-  MoveYvalue1: 1100
-  MoveYvalue2: 0
+  MoveYvalue1: 0
+  MoveYvalue2: -1100
   Moving: 0
   Move: {fileID: 877889016}
 --- !u!1 &879535701

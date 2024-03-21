@@ -15,6 +15,8 @@ public class SceneMove : MonoBehaviour
     public int MoveYvalue2 = -1100;
     public bool Moving = false;
     public GameObject Move;
+    public int XMoveSpeed = 15;
+    public int YMoveSpeed = 15;
     private RectTransform rectTransform;
     // Start is called before the first frame update
     void Start()
@@ -80,7 +82,7 @@ public class SceneMove : MonoBehaviour
             {
                 rectTransform.anchoredPosition = new Vector2(Xvalue, 0);
                 yield return null;
-                Xvalue -= 10;
+                Xvalue -= XMoveSpeed;
             }
             Moving = false;
     }
@@ -92,7 +94,7 @@ public class SceneMove : MonoBehaviour
         {
             rectTransform.anchoredPosition = new Vector2(Xvalue, 0);
             yield return null;
-            Xvalue += 10;
+            Xvalue += XMoveSpeed;
         }
         Moving = false;
     }
@@ -102,7 +104,7 @@ public class SceneMove : MonoBehaviour
         {
             Setting.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, Yvalue);
             yield return null;
-            Yvalue += 10;
+            Yvalue += YMoveSpeed;
         }
         UpDown = true;
     }
@@ -112,7 +114,7 @@ public class SceneMove : MonoBehaviour
         {
             Setting.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, Yvalue);
             yield return null;
-            Yvalue -= 10;
+            Yvalue -= YMoveSpeed;
         }
         UpDown = false;
     }
