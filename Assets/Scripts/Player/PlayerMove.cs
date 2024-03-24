@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-
     public bool invincibility = false;
-    public int PlayerMoveSpeed = 10;
-    public int PlayerHP = 5;
-    // Start is called before the first frame update
+    private int PlayerMoveSpeed = 2;
+    private int PlayerHP = 5;
+
     void Start()
     {
         invincibility = false;
@@ -18,18 +17,23 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        PlayMove();
     }
 
+    private void PlayMove()
+    {
+        
+        
+    }
     private void Dead()
     {
 
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         
     }
