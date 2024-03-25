@@ -5,9 +5,13 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public bool invincibility = false;
-    private int PlayerMoveSpeed = 2;
+    private float PlayerMoveSpeed = 2;
     private int PlayerHP = 5;
 
+    private void Awake()
+    {
+        
+    }
     void Start()
     {
         invincibility = false;
@@ -16,18 +20,16 @@ public class PlayerMove : MonoBehaviour
             Dead();
         }
     }
-
-
-    void Update()
-    {
-        PlayMove();
-    }
-
-    private void PlayMove()
+    private void FixedUpdate()
     {
         
-        
     }
+
+    private void Move()
+    {
+
+    }
+    
     private void Dead()
     {
 

@@ -6,7 +6,7 @@ public class FadeInOut : MonoBehaviour
 {
     public Image fadeinout;
     private float time = 0f;
-    private float fadetime = 1.5f;
+    private float fadetime = 2.5f;
 
     public void Fade()
     {
