@@ -702,7 +702,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -723,6 +723,7 @@ MonoBehaviour:
   Rd: {fileID: 1345313188}
   invincibility: 0
   PlayerHP: 5
+  SkillCoolTime: 1
 --- !u!50 &1345313188
 Rigidbody2D:
   serializedVersion: 4
