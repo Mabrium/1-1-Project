@@ -24,8 +24,8 @@ public class SceneMove : MonoBehaviour
     private int MoveYvalue1 = 0; //세팅창이 올라와야할 위치 값
     private int MoveYvalue2 = -1100; //세팅창이 내려와야할 위치 값
 
-    private int XMoveSpeed = 5; //선택창 움직이는 속도
-    private int YMoveSpeed = 7; //세팅창 올리고 내리는 속도
+    private int XMoveSpeed = 10; //선택창 움직이는 속도
+    private int YMoveSpeed = 12; //세팅창 올리고 내리는 속도
 
 
     void Awake()
