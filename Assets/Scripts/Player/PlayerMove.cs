@@ -8,11 +8,11 @@ public class PlayerMove : MonoBehaviour
     public bool invincibility = false; //무적 확인
     private int Speed = 3; //움직이는 속도
     private int MoveSpeed = 3; //움직일 속도
-    private int DashSpeed = 20; //움직일 속도
+    private int DashSpeed = 40; //움직일 속도
     public int PlayerHP = 5; //플레이어 체력
 
-    public float SkillCoolTime; //대시 쿨타임
-    private float LastSkillTime = 0.5f; //몰?루 규민이에게 물어보셈
+    public float SkillCoolTime; //몰?루
+    private float LastSkillTime = 0.5f; //대시 쿨타임
     
     private void Awake()
     {
@@ -59,21 +59,13 @@ public class PlayerMove : MonoBehaviour
 
     private void Dead()
     {
-
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("HitObject"))
-        {
-            StartCoroutine(Hit());
-        }
         
     }
 
     private IEnumerator Dash()
     {
         Speed = DashSpeed;
-        yield return new WaitForSeconds(0.07f);
+        yield return new WaitForSeconds(0.04f);
         Speed = MoveSpeed;
     }
 
@@ -81,10 +73,14 @@ public class PlayerMove : MonoBehaviour
     {
         StartCoroutine(Dash());
         invincibility = true;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         invincibility = false;
     }
 
+    public void CollHit()
+    {
+        StartCoroutine(Hit());
+    }
     private IEnumerator Hit()
     {
         PlayerHP -= 1;
