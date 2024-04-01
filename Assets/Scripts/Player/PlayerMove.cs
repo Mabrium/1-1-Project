@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public Rigidbody2D Rd;
-    public bool invincibility = false;
-    private int Speed = 3;
-    private int MoveSpeed = 3;
-    private int DashSpeed = 20;
-    public int PlayerHP = 5;
+    public bool invincibility = false; //무적 확인
+    private int Speed = 3; //움직이는 속도
+    private int MoveSpeed = 3; //움직일 속도
+    private int DashSpeed = 20; //움직일 속도
+    public int PlayerHP = 5; //플레이어 체력
 
-    public float SkillCoolTime;
-    private float LastSkillTime;
+    public float SkillCoolTime; //대시 쿨타임
+    private float LastSkillTime = 0.5f; //몰?루 규민이에게 물어보셈
     
     private void Awake()
     {
@@ -40,8 +40,11 @@ public class PlayerMove : MonoBehaviour
     private void MoveSpace()
     {
         if((Time.time - LastSkillTime) > SkillCoolTime)
+        {
+
             LastSkillTime = Time.time;
-        StartCoroutine(InvincibilitySpace());
+            StartCoroutine(InvincibilitySpace());
+        }
     }
     
     private void Move()

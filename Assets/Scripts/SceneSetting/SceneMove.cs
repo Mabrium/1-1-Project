@@ -90,7 +90,7 @@ public class SceneMove : MonoBehaviour
     {
         if (!Moving)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 switch (MoveX)
                 {
@@ -120,7 +120,7 @@ public class SceneMove : MonoBehaviour
             }
             if (!Settinging)
             {
-                if (Input.GetKeyDown(KeyCode.D))
+                if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     if (MoveX < 2)
                     {
@@ -131,7 +131,7 @@ public class SceneMove : MonoBehaviour
                         StartCoroutine(MoveScrollRight());
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.A))
+                if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     if (MoveX > 0)
                     {
