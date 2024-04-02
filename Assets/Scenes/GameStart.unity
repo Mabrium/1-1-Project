@@ -893,6 +893,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6981789870258284502, guid: 39ed0619e147d2843b3419382250f442, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981789870258284502, guid: 39ed0619e147d2843b3419382250f442, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981789870258284502, guid: 39ed0619e147d2843b3419382250f442, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ed0619e147d2843b3419382250f442, type: 3}
 --- !u!1001 &9212012216658644340
