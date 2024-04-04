@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
-    public SpriteRenderer Sr;
-    public Rigidbody2D Rd;
+    public SceneMove SM;
+
+    private SpriteRenderer Sr;
+    private Rigidbody2D Rd;
     public bool invincibility = false; //무적 확인
     private int speed = 3; //움직이는 속도
     private int moveSpeed = 3; //움직일 속도
@@ -29,6 +32,7 @@ public class PlayerMove : MonoBehaviour
         invincibility = false;
         if(playerHP <= 0)
         {
+            invincibility = true;
             Dead();
         }
     }
@@ -62,7 +66,13 @@ public class PlayerMove : MonoBehaviour
 
     private void Dead()
     {
-        
+        StartCoroutine(DeadSceneChange());
+
+    }
+    public IEnumerator DeadSceneChange()
+    {
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadScene("Map");
     }
 
     private IEnumerator Dash()
@@ -86,19 +96,23 @@ public class PlayerMove : MonoBehaviour
     }
     private IEnumerator Hit()
     {
-        playerHP -= 1;
-        if(playerHP <= 0)
+        if (!invincibility)
         {
-            invincibility = true;
-            Dead();
-        }
-        else
-        {
-            StartCoroutine(ChangePlayerColor());
-            invincibility = true;
-            Sr.color = new Color(HitColor, HitColor, HitColor);
-            yield return new WaitForSeconds(2.0f);
-            invincibility = false;
+            playerHP -= 1;
+            if(playerHP <= 0)
+            {
+                invincibility = true;
+                Dead();
+            }
+            else
+            {
+                StartCoroutine(ChangePlayerColor());
+                invincibility = true;
+                Sr.color = new Color(HitColor, HitColor, HitColor);
+                yield return new WaitForSeconds(2.0f);
+                invincibility = false;
+            }
+
         }
     }
     

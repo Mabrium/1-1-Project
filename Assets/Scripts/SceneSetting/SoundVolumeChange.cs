@@ -5,11 +5,46 @@ using UnityEngine.UI;
 
 public class SoundVolumeChange : MonoBehaviour
 {
-    public Slider SoundVolume;
+
+    public static SoundVolumeChange Instance;
+
+    [SerializeField] Slider SoundVolume;
     public AudioSource SoundSource;
 
+    private void Awake()
+    {
+        //if(Instance == null)
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
+    }
     private void Start()
     {
         SoundVolume.onValueChanged.AddListener(x => SoundSource.volume = x);
+        if (!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", 1);
+            Load();
+        }
+        else
+        {
+            Load();
+        }
     }
+
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("musicVolume", SoundVolume.value);
+    }
+
+    private void Load()
+    {
+        SoundVolume.value = PlayerPrefs.GetFloat("musicVolume");
+    }
+
 }

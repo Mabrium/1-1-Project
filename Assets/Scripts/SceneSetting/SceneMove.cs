@@ -154,9 +154,5 @@ public class SceneMove : MonoBehaviour
         }
     }
 
-    public IEnumerator DeadSceneChange()
-    {
-        yield return null;
-        SceneManager.LoadScene("Map");
-    }
+
 }
