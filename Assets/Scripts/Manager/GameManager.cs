@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour
 
     void LoadData()
     {
-        int StageX = PlayerPrefs.GetInt("Stage");
-        float SoundX = PlayerPrefs.GetFloat("Sound");
+        int SaveStage = PlayerPrefs.GetInt("Stage");
+        float SaveSoundVoulme = PlayerPrefs.GetFloat("Sound");
 
     }
 }

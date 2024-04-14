@@ -13,7 +13,7 @@ public class SoundVolumeChange : MonoBehaviour
 
     private void Awake()
     {
-        //if(Instance == null)
+        //if (Instance == null)
         //{
         //    Instance = this;
         //    DontDestroyOnLoad(gameObject);
@@ -26,16 +26,22 @@ public class SoundVolumeChange : MonoBehaviour
     private void Start()
     {
         SoundVolume.onValueChanged.AddListener(x => SoundSource.volume = x);
-        if (!PlayerPrefs.HasKey("musicVolume"))
-        {
-            PlayerPrefs.SetFloat("musicVolume", 1);
-            Save();
-        }
-        else
-        {
-            Load();
-        }
+        //if (PlayerPrefs.HasKey("musicVolume"))
+        //{
+        //    Load();
+        //}
+        //if (Input.GetKeyDown(KeyCode.W))
+        //{
+        //    if (!PlayerPrefs.HasKey("musicVolume"))
+        //    {
+        //        Save();
+        //    }
+        //}
     }
+
+
+
+
 
     private void Save()
     {
