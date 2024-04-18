@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneMove : MonoBehaviour
 {
+    public SoundVolumeChange SVC; //사운드 설정 코드 가져오기
     public FadeInOut fade; //다른 코드 가져오기
 
     public GameObject Setting;
@@ -24,8 +25,8 @@ public class SceneMove : MonoBehaviour
     private int MoveYvalue1 = 0; //세팅창이 올라와야할 위치 값
     private int MoveYvalue2 = -1100; //세팅창이 내려와야할 위치 값
 
-    private int XMoveSpeed = 9; //선택창 움직이는 속도
-    private int YMoveSpeed = 11; //세팅창 올리고 내리는 속도
+    private int XMoveSpeed = 4; //선택창 움직이는 속도
+    private int YMoveSpeed = 6; //세팅창 올리고 내리는 속도
 
 
     void Awake()
@@ -119,6 +120,7 @@ public class SceneMove : MonoBehaviour
                         {
                             Settinging = false;
                             StartCoroutine(MoveY_Down());
+                            SVC.Save();
                         }
                         break;
                     case 2:

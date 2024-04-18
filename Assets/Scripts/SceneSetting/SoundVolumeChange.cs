@@ -43,12 +43,12 @@ public class SoundVolumeChange : MonoBehaviour
 
 
 
-    private void Save()
+    public void Save()
     {
         PlayerPrefs.SetFloat("musicVolume", SoundVolume.value);
     }
 
-    private void Load()
+    public void Load()
     {
         SoundVolume.value = PlayerPrefs.GetFloat("musicVolume");
     }
