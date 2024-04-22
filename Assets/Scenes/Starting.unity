@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba630a75a81c3a441bc8dc185225be34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeinout: {fileID: 333783450}
+  fade_in_out: {fileID: 333783450}
 --- !u!1 &1614300764
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237f8bb25d1259d4a93a4e9d24f007f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SVC: {fileID: 0}
   SaveStage: 0
   SaveSoundVoulme: 0
 --- !u!4 &1748524426
