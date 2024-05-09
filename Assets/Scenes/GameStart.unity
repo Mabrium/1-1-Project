@@ -313,6 +313,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7121697906273002010, guid: 5568ab231b57ecd4dad8bbce4382bcf2, type: 3}
+      propertyPath: PMove
+      value: 
+      objectReference: {fileID: 807277691}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5568ab231b57ecd4dad8bbce4382bcf2, type: 3}
 --- !u!4 &249251430 stripped
@@ -551,7 +555,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 803194583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c244e57b3c5ff1e4dae764056651fac0, type: 3}
+  m_Script: {fileID: 11500000, guid: 423ae0839b0b08f4d9535d1b2489e85d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &807277691 stripped
@@ -788,8 +792,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 803194588}
-        m_TargetAssemblyTypeName: TestSceneChange, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_TargetAssemblyTypeName: TestSceneChange1, Assembly-CSharp
+        m_MethodName: menuScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
