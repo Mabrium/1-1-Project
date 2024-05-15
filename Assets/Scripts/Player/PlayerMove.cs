@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
-    public SceneMove SM;
+    //public SceneMove SM;
 
     private SpriteRenderer Sr;
     private Rigidbody2D Rd;
     public bool invincibility = false; //무적 확인
     private int speed = 3; //움직이는 속도
     private int moveSpeed = 3; //움직일 속도
-    private int dashSpeed = 40; //움직일 속도
+    private int dashSpeed = 30; //움직일 속도
     public int playerHP = 5; //플레이어 체력
     private int HitColor = 255; //피격 받았을때 플레이어의 변경될 색상
 

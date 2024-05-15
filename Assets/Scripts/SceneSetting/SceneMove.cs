@@ -16,8 +16,8 @@ public class SceneMove : MonoBehaviour
     private bool Moving = false; //선택창 움직이는거 확인
     private bool Settinging = false; //세팅창이 올라와져있는 상태인지 확인
 
-    private int Xvalue = 0; //선택창이 움직이는 위치 값
-    private int Yvalue = -1100; //세팅창이 움직이는 위치값
+    private float Xvalue = 0; //선택창이 움직이는 위치 값
+    private float Yvalue = -1100; //세팅창이 움직이는 위치값
 
     private int MoveX = 0; //선택창이 움직였을때 선택된 값
 
@@ -25,8 +25,10 @@ public class SceneMove : MonoBehaviour
     private int MoveYvalue1 = 0; //세팅창이 올라와야할 위치 값
     private int MoveYvalue2 = -1100; //세팅창이 내려와야할 위치 값
 
-    private int XMoveSpeed = 4; //선택창 움직이는 속도
-    private int YMoveSpeed = 6; //세팅창 올리고 내리는 속도
+    [SerializeField]
+    private int XMoveSpeed = 6; //선택창 움직이는 속도
+    [SerializeField]
+    private int YMoveSpeed = 10; //세팅창 올리고 내리는 속도
 
 
     void Awake()
@@ -43,7 +45,10 @@ public class SceneMove : MonoBehaviour
 
     void Update()
     {
-        StartCoroutine(MoveScene());
+        if (!Moving)
+        {
+            MoveScene();
+        }
     }
     private IEnumerator StartScene()
     {
@@ -52,15 +57,15 @@ public class SceneMove : MonoBehaviour
     }
     IEnumerator MoveScrollRight()
     {
-            Moving = true;
-            
-            while (Xvalue >= MoveXvalue)
-            {
-                rectTransform.anchoredPosition = new Vector2(Xvalue, 0);
-                yield return null;
-                Xvalue -= XMoveSpeed;
-            }
-            Moving = false;
+        Moving = true;
+
+        while (Xvalue >= MoveXvalue)
+        {
+            Xvalue -= XMoveSpeed * Time.deltaTime;
+            rectTransform.anchoredPosition = new Vector2(Xvalue, 0);
+            yield return null;
+        }
+        Moving = false;
     }
     IEnumerator MoveScrollLeft()
     {
@@ -68,9 +73,10 @@ public class SceneMove : MonoBehaviour
 
         while (Xvalue <= MoveXvalue)
         {
+
+            Xvalue += XMoveSpeed * Time.deltaTime;
             rectTransform.anchoredPosition = new Vector2(Xvalue, 0);
             yield return null;
-            Xvalue += XMoveSpeed;
         }
         Moving = false;
     }
@@ -95,10 +101,8 @@ public class SceneMove : MonoBehaviour
         UpDown = false;
     }
 
-    IEnumerator MoveScene() //스타트나 세팅등 그거 이동하는 코드 세팅창 올리는거까지 포함 되어있음
+    private void MoveScene() //스타트나 세팅등 그거 이동하는 코드 세팅창 올리는거까지 포함 되어있음
     {
-        if (!Moving)
-        {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 switch (MoveX)
@@ -106,8 +110,7 @@ public class SceneMove : MonoBehaviour
                     case 0:
                         Moving = true;
                         fade.Fade();
-                        yield return new WaitForSeconds(3.5f);
-                        SceneManager.LoadScene("Map");
+                        Invoke(nameof(LoadSceneMap), 3.5f);
                         break;
                     case 1:
 
@@ -153,8 +156,10 @@ public class SceneMove : MonoBehaviour
                     }
                 }
             }
-        }
     }
 
-
+    private void LoadSceneMap()
+    {
+        SceneManager.LoadScene("Map");
+    }
 }

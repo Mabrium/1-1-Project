@@ -555,7 +555,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 803194583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c244e57b3c5ff1e4dae764056651fac0, type: 3}
+  m_Script: {fileID: 11500000, guid: 423ae0839b0b08f4d9535d1b2489e85d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &807277691 stripped
@@ -792,8 +792,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 803194588}
-        m_TargetAssemblyTypeName: TestSceneChange, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_TargetAssemblyTypeName: TestSceneChange1, Assembly-CSharp
+        m_MethodName: menuScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

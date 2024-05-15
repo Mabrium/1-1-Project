@@ -1458,6 +1458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 877889017}
   - component: {fileID: 877889018}
+  - component: {fileID: 877889019}
   m_Layer: 5
   m_Name: Scrolling
   m_TagString: Untagged
@@ -1504,6 +1505,20 @@ MonoBehaviour:
   fade: {fileID: 1797585781}
   Setting: {fileID: 454797146}
   Move: {fileID: 877889016}
+  XMoveSpeed: 1500
+  YMoveSpeed: 10
+--- !u!225 &877889019
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877889016}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &879535701
 GameObject:
   m_ObjectHideFlags: 0
