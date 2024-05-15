@@ -27,4 +27,8 @@ public class TestSceneChange1 : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+    public void Library()
+    {
+        SceneManager.LoadScene("Library");
+    }
 }

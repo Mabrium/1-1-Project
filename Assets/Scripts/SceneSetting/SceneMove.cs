@@ -28,7 +28,7 @@ public class SceneMove : MonoBehaviour
     [SerializeField]
     private int XMoveSpeed = 6; //선택창 움직이는 속도
     [SerializeField]
-    private int YMoveSpeed = 10; //세팅창 올리고 내리는 속도
+    private int YMoveSpeed = 3; //세팅창 올리고 내리는 속도
 
 
     void Awake()
@@ -52,7 +52,7 @@ public class SceneMove : MonoBehaviour
     }
     private IEnumerator StartScene()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(2.0f);
         Moving = false;
     }
     IEnumerator MoveScrollRight()
@@ -110,7 +110,7 @@ public class SceneMove : MonoBehaviour
                     case 0:
                         Moving = true;
                         fade.Fade();
-                        Invoke(nameof(LoadSceneMap), 3.5f);
+                        Invoke(nameof(LoadSceneMap), 2.0f);
                         break;
                     case 1:
 
