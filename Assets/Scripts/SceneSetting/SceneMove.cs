@@ -11,6 +11,7 @@ public class SceneMove : MonoBehaviour
     public GameObject Setting;
     public GameObject Move;
     private RectTransform rectTransform;
+    private RectTransform settingY;
 
     private bool UpDown = false; //세팅창 올라오는거 확인
     private bool Moving = false; //선택창 움직이는거 확인
@@ -27,13 +28,13 @@ public class SceneMove : MonoBehaviour
 
     [SerializeField]
     private int XMoveSpeed = 6; //선택창 움직이는 속도
-    [SerializeField]
-    private int YMoveSpeed = 10; //세팅창 올리고 내리는 속도
+    private int YMoveSpeed = 170; //세팅창 올리고 내리는 속도
 
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        settingY = Setting.GetComponent<RectTransform>();
     }
 
     private void Start()
@@ -52,7 +53,7 @@ public class SceneMove : MonoBehaviour
     }
     private IEnumerator StartScene()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(2.5f);
         Moving = false;
     }
     IEnumerator MoveScrollRight()
@@ -84,9 +85,9 @@ public class SceneMove : MonoBehaviour
     {
         while (Yvalue <= MoveYvalue1)
         {
-            Setting.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, Yvalue);
+            Yvalue += YMoveSpeed * Time.deltaTime * 10;
+            settingY.anchoredPosition = new Vector2(0, Yvalue);
             yield return null;
-            Yvalue += YMoveSpeed;
         }
         UpDown = true;
     }
@@ -94,9 +95,9 @@ public class SceneMove : MonoBehaviour
     {
         while (Yvalue >= MoveYvalue2)
         {
-            Setting.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, Yvalue);
+            Yvalue -= YMoveSpeed * Time.deltaTime * 10;
+            settingY.anchoredPosition = new Vector2(0, Yvalue);
             yield return null;
-            Yvalue -= YMoveSpeed;
         }
         UpDown = false;
     }
@@ -110,7 +111,7 @@ public class SceneMove : MonoBehaviour
                     case 0:
                         Moving = true;
                         fade.Fade();
-                        Invoke(nameof(LoadSceneMap), 3.5f);
+                        Invoke(nameof(LoadSceneMap), 2.0f);
                         break;
                     case 1:
 
