@@ -1,19 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ListMove : MonoBehaviour
 {
+    public GameObject[] MusicNameList;
+    
     private RectTransform rectTransform;
     private int X = 400;
     private int Y = -400;
+    private int a = 0;
 
-    private Vector2 target;
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        //target = new Vector2(X, Y);
     }
     void Update()
     {
@@ -21,31 +21,44 @@ public class ListMove : MonoBehaviour
     }
     private void UpDownHandle()
     {
-        
-        if(Input.GetKeyDown(KeyCode.UpArrow) || (Input.GetKeyDown(KeyCode.W)))
+        if(Y < 400)
         {
-            Up();
+            if (Input.GetKeyDown(KeyCode.DownArrow) || (Input.GetKeyDown(KeyCode.S)))
+            {
+                Down();
+                a++;
+                MusicNameList[a].gameObject.SetActive(true);
+                MusicNameList[a - 1].gameObject.SetActive(false);
+            }
         }
-        
-        if (Input.GetKeyDown(KeyCode.DownArrow) || (Input.GetKeyDown(KeyCode.S)))
+        if(Y > -400)
         {
-            Down();
+            if(Input.GetKeyDown(KeyCode.UpArrow) || (Input.GetKeyDown(KeyCode.W)))
+            {
+                Up();
+                a--;
+                MusicNameList[a].gameObject.SetActive(true);
+                MusicNameList[a + 1].gameObject.SetActive(false);
+            }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("Map");
         }
     }
-    private void Up()
+    private void Down()
     {
         X += -200;
         Y += 200;
-        rectTransform.localPosition = new Vector2 (X, Y)/*MoveTowards(rectTransform.position, target, Time.deltaTime)*/;
+        rectTransform.localPosition = new Vector2 (X, Y);
     }
-    private void Down()
+    private void Up()
     {
         X += 200;
         Y += -200;
-        rectTransform.localPosition = new Vector2 (X, Y)/*MoveTowards(rectTransform.position, target, Time.deltaTime)*/;
+        rectTransform.localPosition = new Vector2 (X, Y);
     }
+
+    
+    
 }
