@@ -689,6 +689,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423ae0839b0b08f4d9535d1b2489e85d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1523867104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1523867105}
+  m_Layer: 0
+  m_Name: TextManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1523867105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523867104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1634265345
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +862,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "WASD\uB098 \uBC29\uD5A5\uD0A4\uB97C \uC774\uC6A9\uD574 \uC774\uB3D9"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 827e6cc9aa4ba7a4ea123ff63f58cc77, type: 2}
   m_sharedMaterial: {fileID: 4492780870754781351, guid: 827e6cc9aa4ba7a4ea123ff63f58cc77, type: 2}
