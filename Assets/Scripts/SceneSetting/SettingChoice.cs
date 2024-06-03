@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class SettingChoice : MonoBehaviour
 {
+    public RectTransform icon_rect;
     public GameObject icon;
+    private SettingMode settingmode;
     private enum SettingMode
     {
         Sound,
         PlayMode
     }
-    private SettingMode settingmode;
+
+    private void Awake()
+    {
+        icon_rect = GetComponent<RectTransform>();
+    }
     void Start()
     {
         
@@ -26,9 +32,10 @@ public class SettingChoice : MonoBehaviour
         switch (settingmode)
         {
             case SettingMode.Sound:
-                //icon.
+                icon_rect.localPosition = new Vector2(-6, 2);
                 break;
             case SettingMode.PlayMode:
+                icon_rect.localPosition = new Vector2(-6, -1);
                 break;
         }
     }

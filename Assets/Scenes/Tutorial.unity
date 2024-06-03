@@ -862,7 +862,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WASD\uB098 \uBC29\uD5A5\uD0A4\uB97C \uC774\uC6A9\uD574 \uC774\uB3D9"
+  m_text: "WASD\uB098 \uBC29\uD5A5\uD0A4\uB97C \uC774\uC6A9\uD574 \uC774\uB3D9\uD558\uC138\uC694"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 827e6cc9aa4ba7a4ea123ff63f58cc77, type: 2}
   m_sharedMaterial: {fileID: 4492780870754781351, guid: 827e6cc9aa4ba7a4ea123ff63f58cc77, type: 2}
