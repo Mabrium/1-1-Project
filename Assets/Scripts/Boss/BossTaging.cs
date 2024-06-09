@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossTaging : MonoBehaviour
 {
+    public BossHP BH;
     public Rigidbody2D Brd;
     public PlayerMove PMove;
 
@@ -22,10 +23,16 @@ public class BossTaging : MonoBehaviour
         {
             PMove.CollHit();
         }
+        if (collision.CompareTag("Shotting"))
+        {
+            BH.Damage();
+        }
     }
     // Update is called once per frame
     void Update()
     {
         
     }
+
+
 }
