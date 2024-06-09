@@ -5,16 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
-    //public SceneMove SM;
+    public PlayerHit PH;
 
-    private SpriteRenderer Sr;
     private Rigidbody2D Rd;
     public bool invincibility = false; //무적 확인
     private int speed = 3; //움직이는 속도
     private int moveSpeed = 3; //움직일 속도
     private int dashSpeed = 30; //움직일 속도
     public int playerHP = 5; //플레이어 체력
-    private int HitColor = 255; //피격 받았을때 플레이어의 변경될 색상
 
     public float SkillCoolTime; //몰?루
     private float LastSkillTime = 0.5f; //대시 쿨타임
@@ -22,7 +20,6 @@ public class PlayerMove : MonoBehaviour
     private void Awake()
     {
         Rd = GetComponent<Rigidbody2D>();
-        Sr = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -39,22 +36,23 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         Move();
+        MoveSpace();
+        
+    }
+    private void MoveSpace() //스페이스 눌렀을때 무적되는거
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            MoveSpace();
-        }
-    }
-    private void MoveSpace()
-    {
-        if((Time.time - LastSkillTime) > SkillCoolTime)
-        {
+            if ((Time.time - LastSkillTime) > SkillCoolTime)
+            {
 
-            LastSkillTime = Time.time;
-            StartCoroutine(InvincibilitySpace());
+                LastSkillTime = Time.time;
+                StartCoroutine(InvincibilitySpace());
+            }
         }
     }
     
-    private void Move()
+    private void Move() //움직임
     {
         
         float Xinput = Input.GetAxis("Horizontal");
@@ -64,69 +62,32 @@ public class PlayerMove : MonoBehaviour
     }
     
 
-    private void Dead()
-    {
-        StartCoroutine(DeadSceneChange());
 
-    }
-    public IEnumerator DeadSceneChange()
-    {
-        yield return new WaitForSeconds(3.0f);
-        SceneManager.LoadScene("Map");
-    }
-
-    private IEnumerator Dash()
+    private IEnumerator Dash() //속도를 대시속도까지 올렸다가 다시 내려주는거
     {
         speed = dashSpeed;
         yield return new WaitForSeconds(0.04f);
         speed = moveSpeed;
     }
 
-    private IEnumerator InvincibilitySpace()
+    private IEnumerator InvincibilitySpace() //스페이스 눌렀을때 무적을 실행시켜주는거
     {
         StartCoroutine(Dash());
         invincibility = true;
         yield return new WaitForSeconds(0.2f);
         invincibility = false;
     }
-
-    public void CollHit()
+    public void CollHit() //맞았을때
     {
-        StartCoroutine(Hit());
+        StartCoroutine(PH.Hit());
     }
-    private IEnumerator Hit()
+    public void Dead() //죽음
     {
-        if (!invincibility)
-        {
-            playerHP -= 1;
-            if(playerHP <= 0)
-            {
-                invincibility = true;
-                Dead();
-            }
-            else
-            {
-                StartCoroutine(ChangePlayerColor());
-                invincibility = true;
-                Sr.color = new Color(HitColor, HitColor, HitColor);
-                yield return new WaitForSeconds(2.0f);
-                invincibility = false;
-            }
-
-        }
+        StartCoroutine(DeadSceneChange());
     }
-    
-    private IEnumerator ChangePlayerColor()
+    public IEnumerator DeadSceneChange() //죽어서 씬 바뀜
     {
-        while (HitColor < 255)
-        {
-            HitColor++;
-            yield return Time.deltaTime;
-        }
-        while (HitColor > 0)
-        {
-            HitColor--;
-            yield return Time.deltaTime;
-        }
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadScene("Map");
     }
 }
