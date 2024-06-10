@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossHP : MonoBehaviour
 {
     public GameObject ObjectPool;
+    public GameObject EndUI;
     public int BossHp = 100;
     public bool BossDie = false;
 
@@ -32,8 +33,14 @@ public class BossHP : MonoBehaviour
     {
         if(BossDie)
         {
-            ObjectPool.active = false;
+            ObjectPool.SetActive(false);
+            
         }
 
+    }
+
+    private void EndUIDown()
+    {
+        
     }
 }
