@@ -8,21 +8,28 @@ public class PlayerMove : MonoBehaviour
     public PlayerHit PH;
 
     private Rigidbody2D Rd;
-    public bool invincibility = false; //무적 확인
-    private int speed = 3; //움직이는 속도
-    private int moveSpeed = 3; //움직일 속도
-    private int dashSpeed = 30; //움직일 속도
-    public int playerHP = 5; //플레이어 체력
+    private SpriteRenderer SR;
 
-    public float SkillCoolTime; //몰?루
+    public bool invincibility = false; //무적 확인
+
+    private int speed = 3;              //움직이는 속도
+    private int moveSpeed = 3;          //움직일 속도
+    private int dashSpeed = 30;         //움직일 속도
+    public int playerHP = 5;            //플레이어 체력
+
+    public float SkillCoolTime;         //몰?루
+    private float Alpha = 0;            //이미지 알파값
     private float LastSkillTime = 0.5f; //대시 쿨타임
-    
+    //===============================================================================================================================
     private void Awake()
     {
         Rd = GetComponent<Rigidbody2D>();
+        SR = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
+        //SR.color = new Color(255, 255, 255, 0);
+        ///StartCoroutine(Spawn());
         speed = moveSpeed;
         LastSkillTime = Time.time;
 
@@ -39,6 +46,22 @@ public class PlayerMove : MonoBehaviour
         MoveSpace();
         
     }
+    //===============================================================================================================================
+
+    private IEnumerator Spawn()
+    {
+        SR.color = new Color(255, 255, 255, Alpha);
+        if(Alpha < 255)
+        {
+            Alpha += 1/10;
+            yield return new WaitForSeconds(Time.deltaTime/3);
+        }
+    }
+    
+
+
+
+    //===============================================================================================================================
     private void MoveSpace() //스페이스 눌렀을때 무적되는거
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -60,8 +83,8 @@ public class PlayerMove : MonoBehaviour
 
         Rd.velocity = new Vector2(Xinput * speed, Yinput * speed);
     }
-    
 
+    //===============================================================================================================================
 
     private IEnumerator Dash() //속도를 대시속도까지 올렸다가 다시 내려주는거
     {
@@ -77,6 +100,9 @@ public class PlayerMove : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         invincibility = false;
     }
+
+    //===============================================================================================================================
+
     public void CollHit() //맞았을때
     {
         StartCoroutine(PH.Hit());
@@ -90,4 +116,6 @@ public class PlayerMove : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         SceneManager.LoadScene("Map");
     }
+
+    //===============================================================================================================================
 }

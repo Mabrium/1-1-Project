@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5037396824416185846}
   - component: {fileID: 6981789870258284502}
-  - component: {fileID: 3007454609581430111}
+  - component: {fileID: 5967197252883996712}
   - component: {fileID: 6893116462122171576}
   - component: {fileID: 7670068043240652912}
   - component: {fileID: 8499619535946174805}
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3007454609581430111
+--- !u!114 &5967197252883996712
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3622071d9b555f642828d16681075eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PH: {fileID: 0}
+  PH: {fileID: 568585799037189948}
   invincibility: 0
   playerHP: 5
   SkillCoolTime: 1
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3357d9321025084f997102c9e73d82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PM: {fileID: 3007454609581430111}
+  PM: {fileID: 0}
   playerHP: 5
 --- !u!114 &3301554862086570880
 MonoBehaviour:
