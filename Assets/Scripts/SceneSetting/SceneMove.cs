@@ -104,7 +104,7 @@ public class SceneMove : MonoBehaviour
 
     private void MoveScene() //스타트나 세팅등 그거 이동하는 코드 세팅창 올리는거까지 포함 되어있음
     {
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
                 switch (MoveX)
                 {
@@ -122,12 +122,15 @@ public class SceneMove : MonoBehaviour
                         }
                         else
                         {
-                            Settinging = false;
-                            StartCoroutine(MoveY_Down());
-                            SVC.Save();
+                            if (Input.GetKeyDown(KeyCode.Escape) && UpDown)
+                            {
+                               Settinging = false;
+                               StartCoroutine(MoveY_Down());
+                               SVC.Save();
+                            }
                         }
                         break;
-                    case 2:
+                    case 4:
                         Application.Quit(); break;
 
                 }
@@ -136,12 +139,14 @@ public class SceneMove : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
                 {
-                    if (MoveX < 2)
+                    if (MoveX < 4)
                     {
                         MoveX++;
                         if (MoveX == 0) MoveXvalue = 0;
                         if (MoveX == 1) MoveXvalue = -1500;
                         if (MoveX == 2) MoveXvalue = -3000;
+                        if (MoveX == 3) MoveXvalue = -4500;
+                        if (MoveX == 4) MoveXvalue = -6000;
                         StartCoroutine(MoveScrollRight());
                     }
                 }
@@ -153,6 +158,8 @@ public class SceneMove : MonoBehaviour
                         if (MoveX == 0) MoveXvalue = 0;
                         if (MoveX == 1) MoveXvalue = -1500;
                         if (MoveX == 2) MoveXvalue = -3000;
+                        if (MoveX == 3) MoveXvalue = -4500;
+                        if (MoveX == 4) MoveXvalue = -6000;
                         StartCoroutine(MoveScrollLeft());
                     }
                 }

@@ -1,9 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class UIGnW : MonoBehaviour
 {
-    public RectTransform RT;
+    public Image image;
+    public Sprite[] sprite;
+    private RectTransform RT;
     private int SceneNumber = 0;
 
     private void Awake()
@@ -12,7 +15,7 @@ public class UIGnW : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(ChangeX());
+        StartCoroutine(ChangeSprige());
     }
     private void Update()
     {
@@ -20,13 +23,13 @@ public class UIGnW : MonoBehaviour
         
     }
 
-    private IEnumerator ChangeX()
+    private IEnumerator ChangeSprige()
     {
-        RT.Rotate(0, 180, 0);
+        image.sprite = sprite[0];
         yield return new WaitForSeconds(0.3f);
-        RT.Rotate(0, 0, 0);
+        image.sprite = sprite[1];
         yield return new WaitForSeconds(0.3f);
-        yield return StartCoroutine(ChangeX());
+        yield return StartCoroutine(ChangeSprige());
     }
 
     private void GnWMove()
