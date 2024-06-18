@@ -6,19 +6,20 @@ public class PlayerHit : MonoBehaviour
 {
     private SpriteRenderer Sr;
     public PlayerMove PM;
-    public int playerHP = 5; //플레이어 체력
+
     private int HitColor = 255; //피격 받았을때 플레이어의 변경될 색상
     
     private void Awake()
     {
+
         Sr = GetComponent<SpriteRenderer>();
     }
     public IEnumerator Hit() //맞아서 체력 깎이고 색상 변하고 그런거
     {
         if (!PM.invincibility)
         {
-            playerHP -= 1;
-            if (playerHP <= 0)
+            PM.playerHP -= 1;
+            if (PM.playerHP <= 0)
             {
                 PM.invincibility = true;
                 PM.Dead();

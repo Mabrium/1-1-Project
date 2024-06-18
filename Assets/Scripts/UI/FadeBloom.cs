@@ -5,8 +5,8 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class FadeBloom : MonoBehaviour
 {
-    public Bloom bloom;
-    // Start is called before the first frame update
+    PostProcessVolume PPV;
+
     void Start()
     {
         

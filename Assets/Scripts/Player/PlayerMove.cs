@@ -34,11 +34,7 @@ public class PlayerMove : MonoBehaviour
         LastSkillTime = Time.time;
 
         invincibility = false;
-        if(playerHP <= 0)
-        {
-            invincibility = true;
-            Dead();
-        }
+
     }
     private void Update()
     {
@@ -109,7 +105,7 @@ public class PlayerMove : MonoBehaviour
     }
     public void Dead() //Á×À½
     {
-        StartCoroutine(DeadSceneChange());
+        //StartCoroutine(DeadSceneChange());
     }
     public IEnumerator DeadSceneChange() //Á×¾î¼­ ¾À ¹Ù²ñ
     {
