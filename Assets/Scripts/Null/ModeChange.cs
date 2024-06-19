@@ -5,16 +5,23 @@ using UnityEngine;
 public class ModeChange : MonoBehaviour
 {
     public ModeText MT;
-    public bool hardmodeOn = false;
-    public void HardMode()
-    {
-        hardmodeOn = true;
-        MT.Texting();
-    }
+    public int Mode = 0;
 
     public void NormalMode()
     {
-        hardmodeOn = false;
+        Mode = 0;
+        PlayerPrefs.SetInt("mode", Mode);
         MT.Texting();
+    }
+    public void HardMode()
+    {
+        Mode = 1;
+        PlayerPrefs.SetInt("mode", Mode);
+        MT.Texting();
+    }
+
+    public void Load()
+    {
+        Mode = PlayerPrefs.GetInt("mode");
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class TestSceneChange1 : MonoBehaviour
+public class AllSceneChange : MonoBehaviour
 {
     public void mapScene()
     {

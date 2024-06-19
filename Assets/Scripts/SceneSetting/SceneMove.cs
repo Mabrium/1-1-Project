@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class SceneMove : MonoBehaviour
 {
-    public SoundVolumeChange SVC; //사운드 설정 코드 가져오기
-    public FadeInOut fade; //다른 코드 가져오기
+    public SoundVolumeChange SVC;
+    private FadeInOut fade;
+    private AllSceneChange ASC;
 
     public GameObject Setting;
     public GameObject Move;
@@ -114,25 +115,22 @@ public class SceneMove : MonoBehaviour
                         Invoke(nameof(LoadSceneMap), 2.0f);
                         break;
                     case 1:
-
                         if (!UpDown)
                         {
                             Settinging = true;
                             StartCoroutine(MoveY_Up());
                         }
-                        else
+                        if (UpDown)
                         {
-                            if (UpDown)
-                            {
-                                if(Input.GetKeyDown(KeyCode.Escape))
-                                {
-                                    Settinging = false;
-                                    StartCoroutine(MoveY_Down());
-                                    SVC.Save();
-                                }
-                               
-                            }
+                            Settinging = false;
+                            StartCoroutine(MoveY_Down());
+                            SVC.Save();
                         }
+                        break;
+                    case 2:
+                        Moving = true;
+                        fade.Fade();
+                        Invoke(nameof(LoadSceneTutorial), 2.0f);
                         break;
                     case 4:
                         Application.Quit(); break;
@@ -164,6 +162,11 @@ public class SceneMove : MonoBehaviour
 
     private void LoadSceneMap()
     {
-        SceneManager.LoadScene("Map");
+        ASC.mapScene();
+    }
+
+    private void LoadSceneTutorial()
+    {
+        ASC.tutorialScene();
     }
 }
