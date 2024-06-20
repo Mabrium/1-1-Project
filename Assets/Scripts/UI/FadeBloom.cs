@@ -8,8 +8,10 @@ public class FadeBloom : MonoBehaviour
 {
     PostProcessVolume PPV;
     Bloom bloom;
-    int BLOOM = 60;
-    
+    int STARTBLOOM;
+    int BLOOM;
+
+
     private void Awake()
     {
         var PPV = GetComponent<PostProcessVolume>();
@@ -17,7 +19,8 @@ public class FadeBloom : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(BloomFade());
+        //StartCoroutine(bloom_fade());.
+        //StartCoroutine(start_fade());
     }
 
 
@@ -25,15 +28,36 @@ public class FadeBloom : MonoBehaviour
     {
         
     }
-
-    private IEnumerator BloomFade()
+    public void BloomFade()
     {
+        BLOOM = 60;
+        StartCoroutine(bloom_fade());
+    }
+
+    public void StartFade()
+    {
+        STARTBLOOM = 17;
+        StartCoroutine(start_fade());
+    }
+    private IEnumerator bloom_fade()
+    {
+        
         bloom.intensity.value = BLOOM;
         if(BLOOM > 6)
         {
             BLOOM -= 1;
             yield return new WaitForSeconds(Time.deltaTime * 4);
-            StartCoroutine(BloomFade());
+            StartCoroutine(bloom_fade());
+        }
+    }
+    private IEnumerator start_fade()
+    {
+        bloom.intensity.value = STARTBLOOM;
+        if (STARTBLOOM < 60)
+        {
+            STARTBLOOM += 1;
+            yield return new WaitForSeconds(Time.deltaTime * 4);
+            StartCoroutine(start_fade());
         }
     }
 }

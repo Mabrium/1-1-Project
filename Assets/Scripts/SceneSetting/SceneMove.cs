@@ -6,13 +6,15 @@ using UnityEngine;
 public class SceneMove : MonoBehaviour
 {
     public SoundVolumeChange SVC;
-    private FadeInOut fade;
-    private AllSceneChange ASC;
+    public FadeInOut fade;
+    public AllSceneChange ASC;
 
     public GameObject Setting;
+    public GameObject Credit;
     public GameObject Move;
     private RectTransform rectTransform;
     private RectTransform settingY;
+    private RectTransform creditY;
 
     private bool UpDown = false; //세팅창 올라오는거 확인
     private bool Moving = false; //선택창 움직이는거 확인
@@ -28,7 +30,7 @@ public class SceneMove : MonoBehaviour
     private int MoveYvalue2 = -1100; //세팅창이 내려와야할 위치 값
 
     [SerializeField]
-    private int XMoveSpeed = 6; //선택창 움직이는 속도
+    private int XMoveSpeed = 15; //선택창 움직이는 속도
     private int YMoveSpeed = 170; //세팅창 올리고 내리는 속도
 
 
@@ -36,6 +38,7 @@ public class SceneMove : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
         settingY = Setting.GetComponent<RectTransform>();
+        creditY = Credit.GetComponent<RectTransform>();
     }
 
     private void Start()
@@ -102,7 +105,26 @@ public class SceneMove : MonoBehaviour
         }
         UpDown = false;
     }
-
+    IEnumerator CreditMoveYUp()
+    {
+        while (Yvalue <= MoveYvalue1)
+        {
+            Yvalue -= YMoveSpeed * Time.deltaTime * 10;
+            creditY.anchoredPosition = new Vector2(0, Yvalue);
+            yield return null;
+        }
+        UpDown = true;
+    }
+    IEnumerator CreditMoveYDown()
+    {
+        while (Yvalue >= MoveYvalue2)
+        {
+            Yvalue += YMoveSpeed * Time.deltaTime * 10;
+            creditY.anchoredPosition = new Vector2(0, Yvalue);
+            yield return null;
+        }
+        UpDown = false;
+    }
     private void MoveScene() //스타트나 세팅등 그거 이동하는 코드 세팅창 올리는거까지 포함 되어있음
     {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -132,8 +154,20 @@ public class SceneMove : MonoBehaviour
                         fade.Fade();
                         Invoke(nameof(LoadSceneTutorial), 2.0f);
                         break;
-                    case 4:
+                    case 3:
                         Application.Quit(); break;
+                    case 4:
+                        if (!UpDown)
+                        {
+                            Settinging = true;
+                            StartCoroutine(CreditMoveYUp());
+                        }
+                        if (UpDown)
+                        {
+                            Settinging = false;
+                            StartCoroutine(CreditMoveYDown());
+                        }
+                        break;
 
                 }
             }
@@ -160,7 +194,7 @@ public class SceneMove : MonoBehaviour
             }
     }
 
-    private void LoadSceneMap()
+    public void LoadSceneMap()
     {
         ASC.mapScene();
     }

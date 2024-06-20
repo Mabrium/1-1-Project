@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ModeChange : MonoBehaviour
 {
+    public static ModeChange Instance;
     public ModeText MT;
     public int Mode = 0;
 

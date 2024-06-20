@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Press : MonoBehaviour
 {
+    private FadeBloom FB;
     public FadeInOut Fade;
     // Start is called before the first frame update
     void Update()
@@ -18,6 +19,7 @@ public class Press : MonoBehaviour
 
     IEnumerator Starting()
     {
+        FB.StartFade();
         Fade.Fade();
         yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene("Menu");
