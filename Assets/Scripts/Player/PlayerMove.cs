@@ -53,7 +53,7 @@ public class PlayerMove : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime/3);
         }
     }
-    
+
 
 
 

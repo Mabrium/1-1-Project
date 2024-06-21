@@ -22,16 +22,18 @@ public class SceneMove : MonoBehaviour
 
     private float Xvalue = 0; //선택창이 움직이는 위치 값
     private float Yvalue = -1100; //세팅창이 움직이는 위치값
+    private float CYvalue = 1100;
 
     private int MoveX = 0; //선택창이 움직였을때 선택된 값
 
     private int MoveXvalue = 0; //선택창이 움직여야하는 위치값
     private int MoveYvalue1 = 0; //세팅창이 올라와야할 위치 값
     private int MoveYvalue2 = -1100; //세팅창이 내려와야할 위치 값
+    private int MoveCYvalue3 = 1100;
 
     [SerializeField]
-    private int XMoveSpeed = 15; //선택창 움직이는 속도
-    private int YMoveSpeed = 170; //세팅창 올리고 내리는 속도
+    private int XMoveSpeed = 30; //선택창 움직이는 속도
+    private int YMoveSpeed = 300; //세팅창 올리고 내리는 속도
 
 
     void Awake()
@@ -66,7 +68,7 @@ public class SceneMove : MonoBehaviour
 
         while (Xvalue >= MoveXvalue)
         {
-            Xvalue -= XMoveSpeed * Time.deltaTime;
+            Xvalue -= XMoveSpeed * Time.deltaTime * 2;
             rectTransform.anchoredPosition = new Vector2(Xvalue, 0);
             yield return null;
         }
@@ -79,7 +81,7 @@ public class SceneMove : MonoBehaviour
         while (Xvalue <= MoveXvalue)
         {
 
-            Xvalue += XMoveSpeed * Time.deltaTime;
+            Xvalue += XMoveSpeed * Time.deltaTime * 2;
             rectTransform.anchoredPosition = new Vector2(Xvalue, 0);
             yield return null;
         }
@@ -107,20 +109,20 @@ public class SceneMove : MonoBehaviour
     }
     IEnumerator CreditMoveYUp()
     {
-        while (Yvalue <= MoveYvalue1)
+        while (CYvalue <= MoveCYvalue3)
         {
-            Yvalue -= YMoveSpeed * Time.deltaTime * 10;
-            creditY.anchoredPosition = new Vector2(0, Yvalue);
+            CYvalue += YMoveSpeed * Time.deltaTime * 10;
+            creditY.anchoredPosition = new Vector2(0, CYvalue);
             yield return null;
         }
         UpDown = true;
     }
     IEnumerator CreditMoveYDown()
     {
-        while (Yvalue >= MoveYvalue2)
+        while (CYvalue >= MoveYvalue1)
         {
-            Yvalue += YMoveSpeed * Time.deltaTime * 10;
-            creditY.anchoredPosition = new Vector2(0, Yvalue);
+            CYvalue -= YMoveSpeed * Time.deltaTime * 10;
+            creditY.anchoredPosition = new Vector2(0, CYvalue);
             yield return null;
         }
         UpDown = false;
@@ -159,12 +161,12 @@ public class SceneMove : MonoBehaviour
                     case 4:
                         if (!UpDown)
                         {
-                            Settinging = true;
+                            Settinging = false;
                             StartCoroutine(CreditMoveYUp());
                         }
                         if (UpDown)
                         {
-                            Settinging = false;
+                            Settinging = true;
                             StartCoroutine(CreditMoveYDown());
                         }
                         break;
@@ -196,7 +198,7 @@ public class SceneMove : MonoBehaviour
 
     public void LoadSceneMap()
     {
-        ASC.mapScene();
+        ASC.Library();
     }
 
     private void LoadSceneTutorial()

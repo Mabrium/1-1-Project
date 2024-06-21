@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Press : MonoBehaviour
 {
-    private FadeBloom FB;
+    public FadeBloom FB;
     public FadeInOut Fade;
-    // Start is called before the first frame update
+
     void Update()
     {
         if (Input.anyKeyDown)

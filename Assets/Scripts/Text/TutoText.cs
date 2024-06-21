@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class TutoText : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject Text;
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ChnageText()
     {
-        
+        StartCoroutine(Text1());
     }
+
+    private IEnumerator Text1()
+    {
+        yield return null;
+    }
+
 }
