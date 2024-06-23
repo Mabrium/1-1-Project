@@ -6,7 +6,7 @@ public class BossTaging : MonoBehaviour
 {
     public BossHP BH;
     public Rigidbody2D Brd;
-    public PlayerMove PMove;
+    public PlayerHit PH;
 
     private void Awake()
     {
@@ -21,14 +21,14 @@ public class BossTaging : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            PMove.CollHit();
+            StartCoroutine(PH.Hit());
         }
         if (collision.CompareTag("Shotting"))
         {
             BH.Damage();
         }
     }
-    // Update is called once per frame
+
     void Update()
     {
         

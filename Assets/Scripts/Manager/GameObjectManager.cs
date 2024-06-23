@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameObjectManager : MonoBehaviour
 {
+    public static GameObjectManager instance;
     void Awake()
     {
         var obj = FindObjectsOfType<GameObjectManager>();
@@ -18,11 +19,5 @@ public class GameObjectManager : MonoBehaviour
 
             Destroy(gameObject);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

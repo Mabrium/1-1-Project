@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShotScript : MonoBehaviour
 {
     public Rigidbody2D Srd;
-    [SerializeField] PlayerMove PMove;
+    public PlayerHit PH;
 
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class ShotScript : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            PMove.CollHit();
+            StartCoroutine(PH.Hit());
         }
     }
 }

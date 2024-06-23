@@ -17,6 +17,7 @@ public class SceneMove : MonoBehaviour
     private RectTransform creditY;
 
     private bool UpDown = false; //세팅창 올라오는거 확인
+    private bool CUpDown = true; //크래딧 창 올라오는거 확인
     private bool Moving = false; //선택창 움직이는거 확인
     private bool Settinging = false; //세팅창이 올라와져있는 상태인지 확인
 
@@ -24,7 +25,7 @@ public class SceneMove : MonoBehaviour
     private float Yvalue = -1100; //세팅창이 움직이는 위치값
     private float CYvalue = 1100;
 
-    private int MoveX = 0; //선택창이 움직였을때 선택된 값
+    public int MoveX = 0; //선택창이 움직였을때 선택된 값
 
     private int MoveXvalue = 0; //선택창이 움직여야하는 위치값
     private int MoveYvalue1 = 0; //세팅창이 올라와야할 위치 값
@@ -45,6 +46,8 @@ public class SceneMove : MonoBehaviour
 
     private void Start()
     {
+        CUpDown = true;
+        UpDown = false;
         Moving = true;
         StartCoroutine(StartScene());
     }
@@ -115,7 +118,7 @@ public class SceneMove : MonoBehaviour
             creditY.anchoredPosition = new Vector2(0, CYvalue);
             yield return null;
         }
-        UpDown = true;
+        CUpDown = true;
     }
     IEnumerator CreditMoveYDown()
     {
@@ -125,9 +128,9 @@ public class SceneMove : MonoBehaviour
             creditY.anchoredPosition = new Vector2(0, CYvalue);
             yield return null;
         }
-        UpDown = false;
+        CUpDown = false;
     }
-    private void MoveScene() //스타트나 세팅등 그거 이동하는 코드 세팅창 올리는거까지 포함 되어있음
+    private void MoveScene() //스타트나 세팅등 그거 이동하는 코드 | 세팅창 올리는거까지 포함 되어있음
     {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -159,12 +162,12 @@ public class SceneMove : MonoBehaviour
                     case 3:
                         Application.Quit(); break;
                     case 4:
-                        if (!UpDown)
+                        if (!CUpDown)
                         {
                             Settinging = false;
                             StartCoroutine(CreditMoveYUp());
                         }
-                        if (UpDown)
+                        if (CUpDown)
                         {
                             Settinging = true;
                             StartCoroutine(CreditMoveYDown());

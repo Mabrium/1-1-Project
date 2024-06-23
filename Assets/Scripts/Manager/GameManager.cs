@@ -7,14 +7,12 @@ public class GameManager : MonoBehaviour
     public SoundVolumeChange SVC; //음악등 사운드 볼륨 코드 가져오기
     public ModeChange MC;
     public int SaveStage; //저장할 클리어된 스테이지 값
-    
-    //public int Mode;
+
 
     void Awake()
     {
         LoadData();
     }
-
 
     public void SaveData()
     {
@@ -23,12 +21,10 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    
     void LoadData()
     {
-        //int SaveStage = PlayerPrefs.GetInt("Stage");
         SVC.Load();
         MC.Load();
     }
-
-    
 }
