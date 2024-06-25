@@ -5,8 +5,7 @@ using UnityEngine;
 public class BossHP : MonoBehaviour
 {
     public GameObject ObjectPool;
-    //public GameObject EndUI;
-    public int BossHp = 100;
+    public int BossHp = 1000;
     public bool BossDie = false;
 
     void Start()

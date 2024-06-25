@@ -12,29 +12,31 @@ public class SceneMove : MonoBehaviour
     public GameObject Setting;
     public GameObject Credit;
     public GameObject Move;
+    public GameObject End;
     private RectTransform rectTransform;
     private RectTransform settingY;
     private RectTransform creditY;
 
-    private bool UpDown = false; //세팅창 올라오는거 확인
-    private bool CUpDown = true; //크래딧 창 올라오는거 확인
-    private bool Moving = false; //선택창 움직이는거 확인
+    private bool UpDown = false;     //세팅창 올라오는거 확인
+    private bool CUpDown = true;     //크래딧 창 올라오는거 확인
+    private bool Moving = false;     //선택창 움직이는거 확인
     private bool Settinging = false; //세팅창이 올라와져있는 상태인지 확인
+    private bool GameEnd = false;    //게임을 끝낼건지 창 띄우는거 확인
 
-    private float Xvalue = 0; //선택창이 움직이는 위치 값
-    private float Yvalue = -1100; //세팅창이 움직이는 위치값
-    private float CYvalue = 1100;
+    private float Xvalue = 0;        //선택창이 움직이는 위치 값
+    private float Yvalue = -1100;    //세팅창이 움직이는 위치값
+    private float CYvalue = 1100;    //크레딧창이 움직이는 위치값
 
-    public int MoveX = 0; //선택창이 움직였을때 선택된 값
+    public int MoveX = 0;            //선택창이 움직였을때 선택된 값
 
-    private int MoveXvalue = 0; //선택창이 움직여야하는 위치값
-    private int MoveYvalue1 = 0; //세팅창이 올라와야할 위치 값
+    private int MoveXvalue = 0;      //선택창이 움직여야하는 위치값
+    private int MoveYvalue1 = 0;     //세팅창이 올라와야할 위치 값
     private int MoveYvalue2 = -1100; //세팅창이 내려와야할 위치 값
-    private int MoveCYvalue3 = 1100;
+    private int MoveCYvalue3 = 1100; //크레딧창이 올라가야할 위치값
 
     [SerializeField]
-    private int XMoveSpeed = 30; //선택창 움직이는 속도
-    private int YMoveSpeed = 300; //세팅창 올리고 내리는 속도
+    private int XMoveSpeed = 30;     //선택창 움직이는 속도
+    private int YMoveSpeed = 300;    //세팅창 올리고 내리는 속도
 
 
     void Awake()
@@ -132,71 +134,93 @@ public class SceneMove : MonoBehaviour
     }
     private void MoveScene() //스타트나 세팅등 그거 이동하는 코드 | 세팅창 올리는거까지 포함 되어있음
     {
-            if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            switch (MoveX)
             {
-                switch (MoveX)
-                {
-                    case 0:
-                        Moving = true;
-                        fade.Fade();
-                        Invoke(nameof(LoadSceneMap), 2.0f);
-                        break;
-                    case 1:
-                        if (!UpDown)
-                        {
-                            Settinging = true;
-                            StartCoroutine(MoveY_Up());
-                        }
-                        if (UpDown)
-                        {
-                            Settinging = false;
-                            StartCoroutine(MoveY_Down());
-                            SVC.Save();
-                        }
-                        break;
-                    case 2:
-                        Moving = true;
-                        fade.Fade();
-                        Invoke(nameof(LoadSceneTutorial), 2.0f);
-                        break;
-                    case 3:
-                        Application.Quit(); break;
-                    case 4:
-                        if (!CUpDown)
-                        {
-                            Settinging = false;
-                            StartCoroutine(CreditMoveYUp());
-                        }
-                        if (CUpDown)
-                        {
-                            Settinging = true;
-                            StartCoroutine(CreditMoveYDown());
-                        }
-                        break;
+                case 0:
+                    Moving = true;
+                    fade.Fade();
+                    Invoke(nameof(LoadSceneMap), 2.0f);
+                    break;
+                case 1:
+                    if (!UpDown)
+                    {
+                        Settinging = true;
+                        StartCoroutine(MoveY_Up());
+                    }
+                    if (UpDown)
+                    {
+                        Settinging = false;
+                        StartCoroutine(MoveY_Down());
+                        SVC.Save();
+                    }
+                    break;
+                case 2:
+                    Moving = true;
+                    fade.Fade();
+                    Invoke("LoadSceneTutorial", 2.0f);
+                    break;
+                case 3:
+                    End.SetActive(true);
+                    GameEnd = true;
+                    break;
+                case 4:
+                    if (!CUpDown)
+                    {
+                        Settinging = false;
+                        StartCoroutine(CreditMoveYUp());
+                    }
+                    if (CUpDown)
+                    {
+                        Settinging = true;
+                        StartCoroutine(CreditMoveYDown());
+                    }
+                    break;
 
-                }
             }
-            if (!Settinging)
+        }
+        if (!Settinging)
+        {
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
-                if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+                if (MoveX < 4)
                 {
-                    if (MoveX < 4)
-                    {
-                        MoveX++;
-                        MoveXvalue -= 1500;
-                        StartCoroutine(MoveScrollRight());
-                    }
-                }
-                if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    if (MoveX > 0)
-                    {
-                        MoveX--;
-                        MoveXvalue += 1500;
-                        StartCoroutine(MoveScrollLeft());
-                    }
+                    MoveX++;
+                    MoveXvalue -= 1500;
+                    StartCoroutine(MoveScrollRight());
                 }
             }
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if (MoveX > 0)
+                {
+                    MoveX--;
+                    MoveXvalue += 1500;
+                    StartCoroutine(MoveScrollLeft());
+                }
+            }
+        }
+
+        if(GameEnd)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GameEnd = false;
+                End.SetActive(false);
+            }
+        }
+    }
+
+    public void GEnd()
+    {
+        Application.Quit();
+    }
+
+    public void GNotEnd()
+    {
+        GameEnd = false;
+        End.SetActive(false);
     }
 
     public void LoadSceneMap()

@@ -43,7 +43,7 @@ public class ListMove : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Map");
+            SceneManager.LoadScene("Menu");
         }
     }
     private void Down()
