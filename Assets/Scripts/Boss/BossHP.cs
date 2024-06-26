@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BossHP : MonoBehaviour
 {
-    public GameObject ObjectPool;
     public int BossHp = 1000;
-    public bool BossDie = false;
+    public bool BossDie;
 
     void Start()
     {
-        
+        BossDie = false;
+
     }
 
     void Update()
@@ -30,10 +30,10 @@ public class BossHP : MonoBehaviour
 
     private void BossDead()
     {
-        if(BossDie)
+        if (BossDie)
         {
-            ObjectPool.SetActive(false);
-            
+            this.gameObject.SetActive(false);
+
         }
 
     }

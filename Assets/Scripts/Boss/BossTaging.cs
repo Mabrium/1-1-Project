@@ -5,13 +5,9 @@ using UnityEngine;
 public class BossTaging : MonoBehaviour
 {
     public BossHP BH;
-    public Rigidbody2D Brd;
     public PlayerHit PH;
 
-    private void Awake()
-    {
-        Brd = GetComponent<Rigidbody2D>();
-    }
+    
     void Start()
     {
         
