@@ -6,7 +6,8 @@ public class PlayerMove : MonoBehaviour
 {
     
     public GameObject DeadEffect;
-    
+    public GameObject muzzle_flash;
+
     private SpriteRenderer SR;
     private Rigidbody2D Rd;
 
@@ -40,7 +41,6 @@ public class PlayerMove : MonoBehaviour
     }
     private void Update()
     {
-        Alpha();
         if (!DeadMoving)
         {
             Move();
@@ -94,6 +94,7 @@ public class PlayerMove : MonoBehaviour
     public void Dead() //Á×À½
     {
         SR.color = Color.clear;
+        muzzle_flash.SetActive(false);
         DeadEffect.SetActive(true);
         Rd.constraints = RigidbodyConstraints2D.FreezePosition;
         DeadMoving = true;

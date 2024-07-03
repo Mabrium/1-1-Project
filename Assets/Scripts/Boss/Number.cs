@@ -13,7 +13,8 @@ public class Number : MonoBehaviour
         SR = GetComponent<SpriteRenderer>();
     }
 
-    private void Start()
+
+    private void OnEnable()
     {
         StartCoroutine(CountNumber());
     }
@@ -26,5 +27,8 @@ public class Number : MonoBehaviour
             SR.sprite = NUMBER[random];
             yield return new WaitForSeconds(0.1f);
         }
+
+        yield return new WaitForSeconds(1.0f);
+        gameObject.SetActive(false);
     }
 }

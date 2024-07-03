@@ -19,12 +19,15 @@ public class BossTaging : MonoBehaviour
         {
             StartCoroutine(PH.Hit());
         }
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.CompareTag("Shotting"))
         {
             BH.Damage();
         }
     }
-
     void Update()
     {
         

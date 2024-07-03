@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6211477272740043354}
   - component: {fileID: 2147558396449630975}
   m_Layer: 0
-  m_Name: Square
+  m_Name: muzzle flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeadEffect: {fileID: 2810389739333500005}
+  muzzle_flash: {fileID: 1071009737815313039}
   invincibility: 0
   playerHP: 5
   fadeDuration: 3

@@ -33,7 +33,6 @@ public class BossHP : MonoBehaviour
         if (BossDie)
         {
             this.gameObject.SetActive(false);
-
         }
 
     }
