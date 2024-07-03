@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
     private int speed = 3;              //움직이는 속도
     private int moveSpeed = 3;          //움직일 속도
     private int dashSpeed = 30;         //움직일 속도
-    public int playerHP = 5;            //플레이어 체력
+    public int playerHP = 30;            //플레이어 체력
 
     public float fadeDuration = 3.0f;
     private float currentAlpha = 0f;
@@ -77,7 +77,7 @@ public class PlayerMove : MonoBehaviour
     private IEnumerator Dash() //속도를 대시속도까지 올렸다가 다시 내려주는거
     {
         speed = dashSpeed;
-        yield return new WaitForSeconds(0.04f);
+        yield return new WaitForSeconds(0.05f);
         speed = moveSpeed;
     }
 
@@ -85,7 +85,7 @@ public class PlayerMove : MonoBehaviour
     {
         StartCoroutine(Dash());
         invincibility = true;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
         invincibility = false;
     }
 

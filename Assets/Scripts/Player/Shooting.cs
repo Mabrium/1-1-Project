@@ -36,8 +36,6 @@ public class Shooting : MonoBehaviour
 
         // 마우스 방향으로 플레이어가 바라보도록 회전 설정
         transform.right = direction;
-
-        // 발사 입력 
         
     }
     IEnumerator ShootProjectile()

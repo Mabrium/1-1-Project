@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Number : MonoBehaviour
 {
+    public GameObject hammer;
+    public Hammer Hm;
     public Sprite[] NUMBER;
     private SpriteRenderer SR;
     public int random;
@@ -27,8 +29,9 @@ public class Number : MonoBehaviour
             SR.sprite = NUMBER[random];
             yield return new WaitForSeconds(0.1f);
         }
-
+        hammer.SetActive(true);
         yield return new WaitForSeconds(1.0f);
+        Hm.On();
         gameObject.SetActive(false);
     }
 }

@@ -15,7 +15,7 @@ public class ShotScript : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            StartCoroutine(PH.Hit());
+            StartCoroutine(PH.Hit(1));
         }
     }
 }

@@ -6,12 +6,16 @@ public class PlayerHit : MonoBehaviour
 {
     public PlayerMove PM;
 
-    
-    public IEnumerator Hit() 
+    /// <summary>
+    /// 이 함수를 이용해서 플레이어의 체력을 깎는다
+    /// </summary>
+    /// <param name="Hit">이 함수는 양수를 이용하여 깎을 값을 설정할 것</param>
+    /// <returns></returns>
+    public IEnumerator Hit(int Hit) 
     {
         if (!PM.invincibility)
         {
-            PM.playerHP -= 1;
+            PM.playerHP -= Hit;
             if (PM.playerHP <= 0)
             {
                 PM.invincibility = true;
