@@ -30,8 +30,8 @@ public class Number : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         hammer.SetActive(true);
-        yield return new WaitForSeconds(1.0f);
         Hm.On();
+        yield return new WaitForSeconds(1.0f);
         gameObject.SetActive(false);
     }
 }

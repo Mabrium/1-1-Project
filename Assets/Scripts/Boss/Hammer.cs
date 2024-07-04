@@ -12,8 +12,8 @@ public class Hammer : MonoBehaviour
     float random2;
     int speed = 700;
 
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (number.random == 0) { Atk = 1; }
         else if (number.random == 1) { Atk = 2; }
@@ -24,7 +24,7 @@ public class Hammer : MonoBehaviour
         else if (number.random == 6) { Atk = 20; }
         else if (number.random == 7) { Atk = 25; }
         else if (number.random == 8) { Atk = 999; }
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(PH.Hit(Atk));
             print(Atk);
@@ -38,12 +38,12 @@ public class Hammer : MonoBehaviour
     }
     private void Move()
     {
-        random1 = Random.Range(-1, 1);
-        random2 = Random.Range(-1, 1);
+        random1 = Random.Range(-1, 2);
+        random2 = Random.Range(-1, 2);
         while (random1 == 0)
-            random1 = Random.Range(-1, 1);
+            random1 = Random.Range(-1, 2);
         while(random2 == 0)
-            random2 = Random.Range(-1, 1);
+            random2 = Random.Range(-1, 2);
 
         Vector2 dir = new Vector2(random1, random2).normalized;
 
