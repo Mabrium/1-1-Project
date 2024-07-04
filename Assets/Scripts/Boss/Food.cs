@@ -4,22 +4,42 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    public GameObject _target;
+    public GameObject fjaow;
+    public GameObject _TARGET;
     public Transform _p1, _p2, _p3;
     public float _duration;
     public GameObject[] FOOD;
-    public Transform[] Right_transforms;
-    public Transform[] Left_transforms;
+    public Transform[] transforms;
+
+    private int ew = 0;
     void Start()
     {
-        StartCoroutine(COR_BezierCurves());
+        
     }
 
-    //private IEnumerator Throw()
-    //{
-        
-    //}
-    IEnumerator COR_BezierCurves(float duration = 1.0f)
+    public IEnumerator TThrow()
+    {
+        while (true)
+        {
+            _TARGET = FOOD[ew];
+            ew++;
+            if (ew > 4) ew = 0;
+            yield return new WaitForSeconds(1f);
+            fjaow.transform.position = new Vector2(-0.4f, -0.5f);
+        }
+    }
+    public IEnumerator TTThrow()
+    {
+        while (true)
+        {
+            _TARGET = FOOD[ew];
+            ew++;
+            if (ew > 4) ew = 0;
+            yield return new WaitForSeconds(1f);
+            fjaow.transform.position = new Vector2(0.3f, -0.5f);
+        }
+    }
+    IEnumerator COR_BezierCurves(float duration = 1.0f) //던지기
     {
         float time = 0f;
 
@@ -32,31 +52,24 @@ public class Food : MonoBehaviour
 
             Vector3 p4 = Vector3.Lerp(_p1.position, _p2.position, time);
             Vector3 p5 = Vector3.Lerp(_p2.position, _p3.position, time);
-            _target.transform.position = Vector3.Lerp(p4, p5, time);
+            _TARGET.transform.position = Vector3.Lerp(p4, p5, time);
 
             time += Time.deltaTime / duration;
 
             yield return null;
         }
+        
     }
 
-    private IEnumerator ThrowRight()
+    
+    public IEnumerator Throw() //던저질 위치 바꾸기
     {
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 9; i+=2)
         {
-            _p2 = Right_transforms[i];
-            _p3 = Right_transforms[i * 2];
-            yield return new WaitForSeconds(1f);
-        }
-    }
-
-    private IEnumerator ThrowLeft()
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            _p2 = Left_transforms[i];
-            _p3 = Left_transforms[i * 2];
-            yield return new WaitForSeconds(1f);
+            _p2 = transforms[i];
+            _p3 = transforms[i+1];
+            StartCoroutine(COR_BezierCurves());
+            yield return new WaitForSeconds(2f);
         }
     }
 }
