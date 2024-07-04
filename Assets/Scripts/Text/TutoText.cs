@@ -13,7 +13,7 @@ public class TutoText : MonoBehaviour
     }
 
 
-    private IEnumerator tText()
+    private IEnumerator tText() //시간에 따라 텍스트 오브젝트를 활성화 및 비활성화
     {
         yield return new WaitForSeconds(10f);
         Text[0].SetActive(false);

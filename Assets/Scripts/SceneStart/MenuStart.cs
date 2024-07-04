@@ -6,11 +6,8 @@ public class MenuStart : MonoBehaviour
 {
     public FadeBloom FB;
 
-
-    
     void Start()
     {
-
         FB.BloomFade();
     }
 

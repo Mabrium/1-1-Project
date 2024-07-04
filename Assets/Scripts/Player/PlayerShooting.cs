@@ -10,11 +10,10 @@ public class PlayerShooting : MonoBehaviour
     public Transform BulletTransform;
     void Start()
     {
-        MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>(); 
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update() //플레이어가 마우스 바라보는거 확인및 발사체 관리
     {
         MouseV2 = MainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = MouseV2 - transform.position;

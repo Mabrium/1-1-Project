@@ -17,16 +17,28 @@ public class ListMove : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            switch (a)
+            {
+                case 0:
+                    SceneManager.LoadScene("Tutorial");
+                    break;
+                case 1:
+                    SceneManager.LoadScene("Boss");
+                    break;
+            }
+        }
+        
         UpDownHandle();
     }
-    private void UpDownHandle()
+    private void UpDownHandle() //방향키나 WASD이용해서 리스트 창 이동
     {
         if(Y < 400)
         {
             if (Input.GetKeyDown(KeyCode.DownArrow) || (Input.GetKeyDown(KeyCode.S)))
             {
                 Down();
-                a++;
                 MusicNameList[a].gameObject.SetActive(true);
                 MusicNameList[a - 1].gameObject.SetActive(false);
             }
@@ -36,7 +48,6 @@ public class ListMove : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.UpArrow) || (Input.GetKeyDown(KeyCode.W)))
             {
                 Up();
-                a--;
                 MusicNameList[a].gameObject.SetActive(true);
                 MusicNameList[a + 1].gameObject.SetActive(false);
             }
@@ -46,16 +57,18 @@ public class ListMove : MonoBehaviour
             SceneManager.LoadScene("Menu");
         }
     }
-    private void Down()
+    private void Down() //정해진 값대로 이동시켜서 깔끔한 처리
     {
         X += -200;
         Y += 200;
+        a++;
         rectTransform.localPosition = new Vector2 (X, Y);
     }
     private void Up()
     {
         X += 200;
         Y += -200;
+        a--;
         rectTransform.localPosition = new Vector2 (X, Y);
     }
 

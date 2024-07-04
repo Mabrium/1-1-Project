@@ -21,7 +21,7 @@ public class Number : MonoBehaviour
         StartCoroutine(CountNumber());
     }
 
-    public IEnumerator CountNumber()
+    public IEnumerator CountNumber() //랜덤하게 숫자 띄워서 무기의 공격력 변경하기
     {
         for(int i = 0; i < 8; i++)
         {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossColliderNMove : MonoBehaviour
 {
     public Food Fd;
+    public GameObject Number;
     public GameObject ODSIJF;
     public GameObject FD;
     public Collider2D[] move;
@@ -13,10 +14,10 @@ public class BossColliderNMove : MonoBehaviour
 
     private int random;
     
-    public bool afwo;
-    public bool fawo;
-    public bool faef;
-    public bool fefw;
+    public bool right_D; //오른쪽 대기
+    public bool left_D;  //왼쪽 대기
+    public bool right_T; //오른쪽 투척
+    public bool left_T;  //왼쪽 투척
 
 
     void Awake()
@@ -24,53 +25,48 @@ public class BossColliderNMove : MonoBehaviour
         SR = GetComponent<SpriteRenderer>();
     }
 
-    
+    private void Start()
+    {
+        Invoke("Switch", 3f);
+    }
 
     public void Switch()
     {
-        random = Random.Range(0, 2);
-        //switch (random)
-        //{
-        //    case 0:
-        //        afwo = true;
-        //        StartCoroutine(Change1());
-        //        break;
-        //    case 1:
-        //        fawo = true;
-        //        StartCoroutine(Change1_1());
-        //        break;
-        //    case 2:
-        //        faef = true;
-        //        StartCoroutine(Change2());
-        //        break;
-        //    case 3:
-        //        fefw = true;
-        //        StartCoroutine(Change2_1());
-        //        break;
-        //}
-
+        random = Random.Range(0, 4);
+        
         switch (random)
         {
             case 0:
-                faef = true;
-                StartCoroutine(Change2());
+                right_D = true;
+                Number.SetActive(true);
+                StartCoroutine(Change1());
                 break;
             case 1:
-                fefw = true;
+                left_D = true;
+                Number.SetActive(true);
+                StartCoroutine(Change1_1());
+                break;
+            case 2:
+                right_T = true;
+                StartCoroutine(Change2());
+                break;
+            case 3:
+                left_T = true;
                 StartCoroutine(Change2_1());
                 break;
         }
 
+
     }
 
-    public IEnumerator Change1()
+    public IEnumerator Change1() //오른쪽 대기상태
     {
         
         transform.rotation = Quaternion.Euler(0, 0, 0);
         ODSIJF.transform.rotation = Quaternion.Euler(0, 0, 0);
-        if (afwo)
+        if (right_D)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
                 move[0].enabled = true;
                 move[1].enabled = false;
@@ -82,19 +78,19 @@ public class BossColliderNMove : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
 
             }
-            afwo = false;
+            right_D = false;
         }    
         Switch();
     }
 
 
-    public IEnumerator Change1_1()
+    public IEnumerator Change1_1() //왼쪽 대기상태
     {
         transform.rotation = Quaternion.Euler(0, 180, 0);
         ODSIJF.transform.rotation = Quaternion.Euler(0, 180, 0);
-        if (fawo)
+        if (left_D)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
                 move[0].enabled = true;
                 move[1].enabled = false;
@@ -106,16 +102,16 @@ public class BossColliderNMove : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
 
             }
-            fawo = false;
+            left_D = false;
         }
         Switch();
     }
     
-    public IEnumerator Change2()
+    public IEnumerator Change2() //오른쪽 음식 던지기
     {
         print("오른쪽");
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        if (faef)
+        if (right_T)
         {
             FD.SetActive(true);
             StartCoroutine(Fd.Throw());
@@ -129,15 +125,15 @@ public class BossColliderNMove : MonoBehaviour
             move[2].enabled = false;
             SR.sprite = SPRITE[0];
             FD.SetActive(false);
-            faef = false;
+            right_T = false;
         }
         Switch();
     }
-    public IEnumerator Change2_1()
+    public IEnumerator Change2_1() //왼쪽 음식 던지기
     {
         print("왼쪽");
         transform.rotation = Quaternion.Euler(0, 180, 0);
-        if (fefw)
+        if (left_T)
         {
             FD.SetActive(true);
             StartCoroutine(Fd.Throw());
@@ -151,7 +147,7 @@ public class BossColliderNMove : MonoBehaviour
             move[2].enabled = false;
             SR.sprite = SPRITE[0];
             FD.SetActive(false);
-            fefw = false;
+            left_T = false;
         }
         Switch();
     }

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class BossHP : MonoBehaviour
 {
-    public int BossHp = 1000;
-    public bool BossDie;
+    public int BossHp = 20;
+    public bool BossDie; //죽었니? 살았니?
 
     void Start()
     {
+        BossHp = 20;
         BossDie = false;
 
     }
@@ -28,11 +29,11 @@ public class BossHP : MonoBehaviour
         }
     }
 
-    private void BossDead()
+    private void BossDead() //보스가 죽었을시 안 보이게 하기
     {
         if (BossDie)
         {
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
 
     }

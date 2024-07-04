@@ -15,7 +15,7 @@ public class BossTaging : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player")) //공격을 했을 때
         {
             StartCoroutine(PH.Hit(1));
         }
@@ -23,7 +23,7 @@ public class BossTaging : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Shotting"))
+        if (collision.CompareTag("Shotting")) //공격을 받았을 때
         {
             BH.Damage();
         }

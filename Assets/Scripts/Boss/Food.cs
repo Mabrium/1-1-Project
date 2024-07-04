@@ -22,6 +22,7 @@ public class Food : MonoBehaviour
         while (true)
         {
             _TARGET = FOOD[ew];
+            fjaow.transform.position = new Vector2(-0.4f, -0.5f);
             ew++;
             if (ew > 4) ew = 0;
             yield return new WaitForSeconds(1f);
@@ -33,6 +34,7 @@ public class Food : MonoBehaviour
         while (true)
         {
             _TARGET = FOOD[ew];
+            fjaow.transform.position = new Vector2(0.3f, -0.5f);
             ew++;
             if (ew > 4) ew = 0;
             yield return new WaitForSeconds(1f);

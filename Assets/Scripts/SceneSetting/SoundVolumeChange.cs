@@ -11,7 +11,7 @@ public class SoundVolumeChange : MonoBehaviour
 
     void Awake()
     {
-        SoundSource.volume = SoundVolume.value;
+        SoundSource.volume = SoundVolume.value; //시작 전 저장된 값 가져오기
     }
     void Start()
     {

@@ -13,7 +13,7 @@ public class Hammer : MonoBehaviour
     int speed = 700;
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) //숫자 값에 따른 무기의 공격력과 피해주기
     {
         if (number.random == 0) { Atk = 1; }
         else if (number.random == 1) { Atk = 2; }
@@ -31,12 +31,12 @@ public class Hammer : MonoBehaviour
         }
     }
 
-    public void On()
+    public void On() //기다렸다가 신호가 오면 움직이기
     {
         Move();
         StartCoroutine(Destroy());
     }
-    private void Move()
+    private void Move() //랜덤한 방향으로 움직이기
     {
         random1 = Random.Range(-1, 2);
         random2 = Random.Range(-1, 2);
@@ -50,7 +50,7 @@ public class Hammer : MonoBehaviour
         R2D.AddForce(dir * speed);
     }
 
-    private IEnumerator Destroy()
+    private IEnumerator Destroy() //사실 파괴가 아닌 초기화
     {
         yield return new WaitForSeconds(5.0f);
 

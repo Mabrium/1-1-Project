@@ -5,7 +5,7 @@ using UnityEngine;
 public class StartFade : MonoBehaviour
 {
     public FadeInOut Fade;
-    void Start()
+    void Start()//씬이 시작되었을 때 페이트 시켜주기
     {
         Fade.Fade();
     }

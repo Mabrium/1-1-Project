@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
     private int speed = 3;              //움직이는 속도
     private int moveSpeed = 3;          //움직일 속도
     private int dashSpeed = 30;         //움직일 속도
-    public int playerHP = 30;            //플레이어 체력
+    public int playerHP = 30;           //플레이어 체력
 
     public float fadeDuration = 3.0f;
     private float currentAlpha = 0f;

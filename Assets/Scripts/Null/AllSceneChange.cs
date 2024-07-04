@@ -28,4 +28,8 @@ public class AllSceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("Library");
     }
+    public void BossMap()
+    {
+        SceneManager.LoadScene("Boss");
+    }
 }
