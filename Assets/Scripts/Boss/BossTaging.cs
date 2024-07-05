@@ -23,7 +23,7 @@ public class BossTaging : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Shotting")) //공격을 받았을 때
+        if (collision.CompareTag("Bullet")) //공격을 받았을 때
         {
             BH.Damage();
         }

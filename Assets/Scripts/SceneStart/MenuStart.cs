@@ -8,6 +8,7 @@ public class MenuStart : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         FB.BloomFade();
     }
 

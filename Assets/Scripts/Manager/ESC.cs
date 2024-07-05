@@ -46,6 +46,7 @@ public class ESC : MonoBehaviour
 
     public void Exit()
     {
+        Time.timeScale = 1;
         ASC.menuScene();
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    public GameObject fjaow;
+    private GameObject Coordinates;
     public GameObject _TARGET;
     public Transform _p1, _p2, _p3;
     public float _duration;
@@ -21,24 +21,26 @@ public class Food : MonoBehaviour
     {
         while (true)
         {
+            Coordinates.transform.position = new Vector2(-0.4f, -0.5f);
             _TARGET = FOOD[ew];
-            fjaow.transform.position = new Vector2(-0.4f, -0.5f);
+            Coordinates.transform.position = new Vector2(-0.4f, -0.5f);
             ew++;
             if (ew > 4) ew = 0;
             yield return new WaitForSeconds(1f);
-            fjaow.transform.position = new Vector2(-0.4f, -0.5f);
+            Coordinates.transform.position = new Vector2(-0.4f, -0.5f);
         }
     }
     public IEnumerator TTThrow()
     {
         while (true)
         {
+            Coordinates.transform.position = new Vector2(0.3f, -0.5f);
             _TARGET = FOOD[ew];
-            fjaow.transform.position = new Vector2(0.3f, -0.5f);
+            Coordinates.transform.position = new Vector2(0.3f, -0.5f);
             ew++;
             if (ew > 4) ew = 0;
             yield return new WaitForSeconds(1f);
-            fjaow.transform.position = new Vector2(0.3f, -0.5f);
+            Coordinates.transform.position = new Vector2(0.3f, -0.5f);
         }
     }
     IEnumerator COR_BezierCurves(float duration = 1.0f) //던지기
@@ -64,7 +66,7 @@ public class Food : MonoBehaviour
     }
 
     
-    public IEnumerator Throw() //던저질 위치 바꾸기
+    public IEnumerator Throw() //던져질 위치 바꾸기
     {
         for (int i = 0; i < 9; i+=2)
         {

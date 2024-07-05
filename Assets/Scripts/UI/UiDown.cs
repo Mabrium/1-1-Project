@@ -17,20 +17,24 @@ public class UiDown : MonoBehaviour
     {
         if(PM.playerHP <= 0)
         {
-            LossUIdown();
+            StartCoroutine(LossUIdown());
         }
         if(BH.BossHp <= 0)
         {
-            WinUIdown();
+            StartCoroutine(WinUIdown());
         }
     }
-    public void LossUIdown()
+    public IEnumerator LossUIdown()
     {
         animator.SetBool("LossUiDown", true);
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0;
     }
 
-    public void WinUIdown()
+    public IEnumerator WinUIdown()
     {
         animator.SetBool("WinUiDown", true);
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0;
     }
 }

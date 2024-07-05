@@ -5,38 +5,27 @@ using UnityEngine;
 public class BossHP : MonoBehaviour
 {
     public int BossHp = 20;
-    public bool BossDie; //죽었니? 살았니?
 
     void Start()
     {
         BossHp = 20;
-        BossDie = false;
 
     }
 
-    void Update()
-    {
-        BossDead();
-    }
+    
 
-    public void Damage()
+    public IEnumerator Damage()
     {
         BossHp += -1;
 
-        if( BossHp <= 0)
-        {
-            BossDie = true;
-        }
-    }
-
-    private void BossDead() //보스가 죽었을시 안 보이게 하기
-    {
-        if (BossDie)
+        if( BossHp <= 0 )
         {
             gameObject.SetActive(false);
+            yield return new WaitForSeconds(2f);
+            Time.timeScale = 0;
         }
-
     }
+
 
     private void EndUIDown()
     {

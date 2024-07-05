@@ -468,13 +468,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1120611707489074555}
+        m_TargetAssemblyTypeName: ComebackMenu, Assembly-CSharp
+        m_MethodName: ReturnMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -491,6 +491,7 @@ GameObject:
   - component: {fileID: 7165033670832389631}
   - component: {fileID: 7165033670832389630}
   - component: {fileID: 7165033670832389629}
+  - component: {fileID: 1120611707489074555}
   m_Layer: 0
   m_Name: DieUI
   m_TagString: Untagged
@@ -557,6 +558,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1120611707489074555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7165033670832389624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3207969e667f0134288feeff1f80c0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7165033670835698153
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,8 +827,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AllSceneChange, Assembly-CSharp
+      - m_Target: {fileID: 1120611707489074555}
+        m_TargetAssemblyTypeName: ComebackMenu, Assembly-CSharp
         m_MethodName: Library
         m_Mode: 1
         m_Arguments:
