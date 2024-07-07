@@ -6,12 +6,16 @@ public class Food : MonoBehaviour
 {
     private GameObject Coordinates;
     public GameObject _TARGET;
-    public Transform _p1, _p2, _p3;
-    public float _duration;
     public GameObject[] FOOD;
+    public Transform _p1, _p2, _p3;
     public Transform[] transforms;
 
+    public float _duration;
+
     private int ew = 0;
+
+    private bool ahoif;
+
     void Start()
     {
         
@@ -21,9 +25,7 @@ public class Food : MonoBehaviour
     {
         while (true)
         {
-            Coordinates.transform.position = new Vector2(-0.4f, -0.5f);
             _TARGET = FOOD[ew];
-            Coordinates.transform.position = new Vector2(-0.4f, -0.5f);
             ew++;
             if (ew > 4) ew = 0;
             yield return new WaitForSeconds(1f);
@@ -34,9 +36,7 @@ public class Food : MonoBehaviour
     {
         while (true)
         {
-            Coordinates.transform.position = new Vector2(0.3f, -0.5f);
             _TARGET = FOOD[ew];
-            Coordinates.transform.position = new Vector2(0.3f, -0.5f);
             ew++;
             if (ew > 4) ew = 0;
             yield return new WaitForSeconds(1f);

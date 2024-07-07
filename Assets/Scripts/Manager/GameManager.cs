@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public SoundVolumeChange SVC; //음악등 사운드 볼륨 코드 가져오기
     public ModeChange MC;
-    public int SaveStage; //저장할 클리어된 스테이지 값
 
 
     void Awake()
@@ -16,8 +15,6 @@ public class GameManager : MonoBehaviour
 
     public void SaveData()
     {
-        PlayerPrefs.SetInt("Stage", SaveStage);
-
         PlayerPrefs.Save();
     }
 

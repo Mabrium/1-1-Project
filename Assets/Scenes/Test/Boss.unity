@@ -534,16 +534,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _TARGET: {fileID: 1284534260}
-  _p1: {fileID: 956735785}
-  _p2: {fileID: 1453272685}
-  _p3: {fileID: 1234508737}
-  _duration: 5
   FOOD:
   - {fileID: 1284534260}
   - {fileID: 1827845652}
   - {fileID: 1067297431}
   - {fileID: 647385637}
   - {fileID: 175458040}
+  _p1: {fileID: 956735785}
+  _p2: {fileID: 1453272685}
+  _p3: {fileID: 1234508737}
   transforms:
   - {fileID: 1453272685}
   - {fileID: 1234508737}
@@ -555,6 +554,7 @@ MonoBehaviour:
   - {fileID: 1821437377}
   - {fileID: 927734892}
   - {fileID: 1884693067}
+  _duration: 5
 --- !u!224 &219671511 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4265494784107222905, guid: d6e43b6a6de244e40b50a2809f07c8e9, type: 3}
@@ -1794,7 +1794,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossHp: 20
-  BossDie: 0
 --- !u!114 &340579219
 MonoBehaviour:
   m_ObjectHideFlags: 0
