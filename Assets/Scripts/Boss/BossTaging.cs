@@ -8,10 +8,6 @@ public class BossTaging : MonoBehaviour
     public PlayerHit PH;
 
     
-    void Start()
-    {
-        
-    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -25,13 +21,9 @@ public class BossTaging : MonoBehaviour
     {
         if (collision.CompareTag("Bullet")) //공격을 받았을 때
         {
-            BH.Damage();
+            StartCoroutine(BH.Damage());
         }
     }
-    void Update()
-    {
-        
-    }
-
+    
 
 }

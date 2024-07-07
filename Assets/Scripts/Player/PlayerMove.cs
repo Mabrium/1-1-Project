@@ -18,8 +18,6 @@ public class PlayerMove : MonoBehaviour
     public int playerHP = 30;           //플레이어 체력
 
     public float fadeDuration = 3.0f;
-    private float currentAlpha = 0f;
-    private float fadeTimer = 0f;
     public float SkillCoolTime;         //몰?루
     private float LastSkillTime = 0.5f; //대시 쿨타임
 
@@ -111,21 +109,5 @@ public class PlayerMove : MonoBehaviour
     }
 
 
-    void SetSpriteAlpha(float alpha)
-    {
-        // 스프라이트 렌더러의 색상을 설정하여 알파값 변경
-        Color color = SR.color;
-        color.a = alpha;
-        SR.color = color;
-    }
-
-    private void Alpha()
-    {
-        if (fadeTimer < fadeDuration)
-        {
-            fadeTimer += Time.deltaTime;
-            currentAlpha = Mathf.Lerp(0.0f, 1.0f, fadeTimer / fadeDuration);
-            SetSpriteAlpha(currentAlpha);
-        }
-    }
+    
 }

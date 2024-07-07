@@ -4,43 +4,53 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    private GameObject Coordinates;
-    public GameObject _TARGET;
-    public GameObject[] FOOD;
+    public GameObject TARGET;
+    public SpriteRenderer s;
+    public Sprite[] FOOD;
     public Transform _p1, _p2, _p3;
     public Transform[] transforms;
+    public Collider2D[] Fooood;
 
     public float _duration;
 
     private int ew = 0;
+    private int sw = 4;
 
-    private bool ahoif;
+    private int randomV;
+    private int random;
 
     void Start()
     {
-        
+        ew = 0;
+        sw = 4;
     }
 
     public IEnumerator TThrow()
     {
         while (true)
         {
-            _TARGET = FOOD[ew];
+            s.sprite = FOOD[ew];
+            Fooood[ew].enabled = true;
             ew++;
+            sw++;
             if (ew > 4) ew = 0;
+            if (sw > 4) sw = 0;
             yield return new WaitForSeconds(1f);
-            Coordinates.transform.position = new Vector2(-0.4f, -0.5f);
+            Fooood[sw].enabled = false;
         }
     }
     public IEnumerator TTThrow()
     {
         while (true)
         {
-            _TARGET = FOOD[ew];
+            s.sprite = FOOD[ew];
+            Fooood[ew].enabled = true;
             ew++;
+            sw++;
             if (ew > 4) ew = 0;
+            if (sw > 4) sw = 0;
             yield return new WaitForSeconds(1f);
-            Coordinates.transform.position = new Vector2(0.3f, -0.5f);
+            Fooood[sw].enabled = false;
         }
     }
     IEnumerator COR_BezierCurves(float duration = 1.0f) //´øÁö±â
@@ -56,7 +66,7 @@ public class Food : MonoBehaviour
 
             Vector3 p4 = Vector3.Lerp(_p1.position, _p2.position, time);
             Vector3 p5 = Vector3.Lerp(_p2.position, _p3.position, time);
-            _TARGET.transform.position = Vector3.Lerp(p4, p5, time);
+            TARGET.transform.position = Vector3.Lerp(p4, p5, time);
 
             time += Time.deltaTime / duration;
 
@@ -70,8 +80,20 @@ public class Food : MonoBehaviour
     {
         for (int i = 0; i < 9; i+=2)
         {
-            _p2 = transforms[i];
-            _p3 = transforms[i+1];
+            randomV = Random.Range(0, 10);
+            if(randomV == 0) { random = 0; }
+            if(randomV == 1) { random = 0; }
+            if(randomV == 2) { random = 2; }
+            if(randomV == 3) { random = 2; }
+            if(randomV == 4) { random = 4; }
+            if(randomV == 5) { random = 4; }
+            if(randomV == 6) { random = 6; }
+            if(randomV == 7) { random = 6; }
+            if(randomV == 8) { random = 8; }
+            if(randomV == 9) { random = 8; }
+
+            _p2 = transforms[random];
+            _p3 = transforms[random + 1];
             StartCoroutine(COR_BezierCurves());
             yield return new WaitForSeconds(2f);
         }

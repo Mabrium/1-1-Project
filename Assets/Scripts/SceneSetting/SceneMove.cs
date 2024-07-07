@@ -19,8 +19,8 @@ public class SceneMove : MonoBehaviour
 
     private bool UpDown = false;     //세팅창 올라오는거 확인
     private bool CUpDown = true;     //크래딧 창 올라오는거 확인
-    private bool Moving = false;     //선택창 움직이는거 확인
-    private bool Settinging = false; //세팅창이 올라와져있는 상태인지 확인
+    public bool Moving = false;     //선택창 움직이는거 확인
+    public bool Settinging = false; //세팅창이 올라와져있는 상태인지 확인
     private bool GameEnd = false;    //게임을 끝낼건지 창 띄우는거 확인
 
     private float Xvalue = 0;        //선택창이 움직이는 위치 값
@@ -71,11 +71,11 @@ public class SceneMove : MonoBehaviour
     {
         Moving = true;
 
-        while (Xvalue >= MoveXvalue)
+        while (Xvalue > MoveXvalue)
         {
             Xvalue -= XMoveSpeed * Time.deltaTime * 2;
             rectTransform.anchoredPosition = new Vector2(Xvalue, 0);
-            yield return null;
+            yield return Time.deltaTime;
         }
         Moving = false;
     }
@@ -83,12 +83,11 @@ public class SceneMove : MonoBehaviour
     {
         Moving = true;
 
-        while (Xvalue <= MoveXvalue)
+        while (Xvalue < MoveXvalue)
         {
-
             Xvalue += XMoveSpeed * Time.deltaTime * 2;
             rectTransform.anchoredPosition = new Vector2(Xvalue, 0);
-            yield return null;
+            yield return Time.deltaTime;
         }
         Moving = false;
     }
@@ -184,21 +183,11 @@ public class SceneMove : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
-                if (MoveX < 4)
-                {
-                    MoveX++;
-                    MoveXvalue -= 1500;
-                    StartCoroutine(MoveScrollRight());
-                }
+                ScrollRight();
             }
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                if (MoveX > 0)
-                {
-                    MoveX--;
-                    MoveXvalue += 1500;
-                    StartCoroutine(MoveScrollLeft());
-                }
+                ScrollLeft();
             }
         }
 
@@ -209,6 +198,26 @@ public class SceneMove : MonoBehaviour
                 GameEnd = false;
                 End.SetActive(false);
             }
+        }
+    }
+
+    public void ScrollLeft()
+    {
+        if (MoveX > 0)
+        {
+            MoveX--;
+            MoveXvalue += 1500;
+            StartCoroutine(MoveScrollLeft());
+        }
+    }
+
+    public void ScrollRight()
+    {
+        if (MoveX < 4)
+        {
+            MoveX++;
+            MoveXvalue -= 1500;
+            StartCoroutine(MoveScrollRight());
         }
     }
 

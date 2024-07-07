@@ -52,7 +52,7 @@ public class Hammer : MonoBehaviour
 
     private IEnumerator Destroy() //사실 파괴가 아닌 초기화
     {
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(4.5f);
 
         gameObject.transform.position = Vector2.zero;
         gameObject.SetActive(false);

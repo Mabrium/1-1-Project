@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHit : MonoBehaviour
 {
     public PlayerMove PM;
+    public CameraSS CS;
 
     /// <summary>
     /// 이 함수를 이용해서 플레이어의 체력을 깎는다
@@ -16,6 +17,7 @@ public class PlayerHit : MonoBehaviour
         if (!PM.invincibility)
         {
             PM.playerHP -= Hit;
+            StartCoroutine(CS.Shake(0.5f, 0.3f));
             if (PM.playerHP <= 0)
             {
                 PM.invincibility = true;

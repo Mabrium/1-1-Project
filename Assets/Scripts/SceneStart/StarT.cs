@@ -18,7 +18,7 @@ public class StarT : MonoBehaviour
 
     private IEnumerator Fadeout() //페이드 아웃만 해야할 때 사용하는 것
     {
-        yield return new WaitForSeconds(5f); ;
+        yield return new WaitForSeconds(5f);
         time = 0f;
         Color alpha = image.color;
         while (alpha.a < 1f)

@@ -5,6 +5,8 @@ using UnityEngine;
 public class BossColliderNMove : MonoBehaviour
 {
     public Food Fd;
+    public GameObject hammer;
+    public GameObject food;
     public GameObject Number;
     public GameObject ODSIJF;
     public GameObject FD;
@@ -38,21 +40,21 @@ public class BossColliderNMove : MonoBehaviour
         {
             case 0:
                 right_D = true;
-                Number.SetActive(true);
+                StartCoroutine(HHAAMMMEERR());
                 StartCoroutine(Change1());
                 break;
             case 1:
                 left_D = true;
-                Number.SetActive(true);
+                StartCoroutine(HHAAMMMEERR());
                 StartCoroutine(Change1_1());
                 break;
             case 2:
                 right_T = true;
-                StartCoroutine(Change2());
+                StartCoroutine(FFOOODDR());
                 break;
             case 3:
                 left_T = true;
-                StartCoroutine(Change2_1());
+                StartCoroutine(FFOOODDL());
                 break;
         }
 
@@ -150,5 +152,46 @@ public class BossColliderNMove : MonoBehaviour
             left_T = false;
         }
         Switch();
+    }
+
+
+
+
+
+
+    private IEnumerator HHAAMMMEERR()
+    {
+        for(int i = 0; i < 2; i++)
+        {
+            hammer.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            hammer.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+        }
+        Number.SetActive(true);
+    }
+
+    private IEnumerator FFOOODDR()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            food.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            food.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+        }
+        StartCoroutine(Change2());
+    }
+
+    private IEnumerator FFOOODDL()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            food.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            food.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+        }
+        StartCoroutine(Change2_1());
     }
 }

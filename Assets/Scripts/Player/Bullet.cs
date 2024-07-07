@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("HitObject"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

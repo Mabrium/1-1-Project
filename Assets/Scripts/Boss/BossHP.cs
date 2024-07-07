@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BossHP : MonoBehaviour
 {
-    public int BossHp = 20;
+    public int BossHp = 100;
 
     void Start()
     {
-        BossHp = 20;
+        BossHp = 100;
 
     }
 
@@ -17,7 +17,6 @@ public class BossHP : MonoBehaviour
     public IEnumerator Damage()
     {
         BossHp += -1;
-
         if( BossHp <= 0 )
         {
             gameObject.SetActive(false);
@@ -27,8 +26,4 @@ public class BossHP : MonoBehaviour
     }
 
 
-    private void EndUIDown()
-    {
-        
-    }
 }
