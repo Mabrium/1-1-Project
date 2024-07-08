@@ -13,15 +13,13 @@ public class BossHP : MonoBehaviour
 
     
 
-    public IEnumerator Damage()
+    public void Damage()
     {
         BossHp += -1;
         if( BossHp <= 0 )
         {
-            gameObject.SetActive(false);
             StartCoroutine(UD.WinUIdown());
-            yield return new WaitForSeconds(2f);
-            Time.timeScale = 0;
+            gameObject.SetActive(false);
         }
     }
 

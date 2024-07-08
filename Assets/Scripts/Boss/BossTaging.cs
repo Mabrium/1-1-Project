@@ -21,7 +21,7 @@ public class BossTaging : MonoBehaviour
     {
         if (collision.CompareTag("Bullet")) //공격을 받았을 때
         {
-            StartCoroutine(BH.Damage());
+            BH.Damage();
         }
     }
     
