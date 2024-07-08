@@ -15,14 +15,14 @@ public class UiDown : MonoBehaviour
     }
     private void Update() //플레이어가 죽었다면 UI창 내리기
     {
-        if(PM.playerHP <= 0)
-        {
-            StartCoroutine(LossUIdown());
-        }
-        if(BH.BossHp <= 0)
-        {
-            StartCoroutine(WinUIdown());
-        }
+        //if(PM.playerHP <= 0)
+        //{
+        //    StartCoroutine(LossUIdown());
+        //}
+        //if(BH.BossHp <= 0)
+        //{
+        //    StartCoroutine(WinUIdown());
+        //}
     }
     public IEnumerator LossUIdown()
     {

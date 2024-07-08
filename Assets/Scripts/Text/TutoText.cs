@@ -21,6 +21,9 @@ public class TutoText : MonoBehaviour
         yield return new WaitForSeconds(10f);
         Text[1].SetActive(false);
         Text[2].SetActive(true);
+        yield return new WaitForSeconds(10f);
+        Text[2].SetActive(false);
+        Text[3].SetActive(true);
     }
 
 }

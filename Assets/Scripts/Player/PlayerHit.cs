@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHit : MonoBehaviour
 {
+    public UiDown UD;
     public PlayerMove PM;
     public CameraSS CS;
 
@@ -20,8 +21,11 @@ public class PlayerHit : MonoBehaviour
             StartCoroutine(CS.Shake(0.5f, 0.3f));
             if (PM.playerHP <= 0)
             {
+                PM.playerHP = 0;
                 PM.invincibility = true;
+                StartCoroutine(UD.LossUIdown());
                 PM.Dead();
+                PM.invincibility = false;
             }
             else
             {

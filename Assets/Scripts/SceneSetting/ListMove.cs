@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class ListMove : MonoBehaviour
 {
+    public CameraSS CS;
+
     public GameObject[] MusicNameList;
     
     private RectTransform rectTransform;
@@ -26,6 +28,15 @@ public class ListMove : MonoBehaviour
                     break;
                 case 1:
                     SceneManager.LoadScene("Boss");
+                    break;
+                case 2:
+                    StartCoroutine(CS.Shake(0.5f, 0.3f));
+                    break;
+                case 3:
+                    StartCoroutine(CS.Shake(0.5f, 0.3f));
+                    break;
+                case 4:
+                    StartCoroutine(CS.Shake(0.5f, 0.3f));
                     break;
             }
         }

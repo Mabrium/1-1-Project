@@ -20,7 +20,7 @@ public class Shooting : MonoBehaviour
         {
             if (!MouseDown)
             {
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Return))
                 {
                     StartCoroutine(ShootProjectile());
                 }

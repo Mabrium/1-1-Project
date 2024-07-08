@@ -135,49 +135,7 @@ public class SceneMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            switch (MoveX)
-            {
-                case 0:
-                    Moving = true;
-                    fade.Fade();
-                    Invoke(nameof(LoadSceneMap), 2.0f);
-                    break;
-                case 1:
-                    if (!UpDown)
-                    {
-                        Settinging = true;
-                        StartCoroutine(MoveY_Up());
-                    }
-                    if (UpDown)
-                    {
-                        Settinging = false;
-                        StartCoroutine(MoveY_Down());
-                        SVC.Save();
-                    }
-                    break;
-                case 2:
-                    Moving = true;
-                    fade.Fade();
-                    Invoke("LoadSceneTutorial", 2.0f);
-                    break;
-                case 3:
-                    End.SetActive(true);
-                    GameEnd = true;
-                    break;
-                case 4:
-                    if (!CUpDown)
-                    {
-                        Settinging = false;
-                        StartCoroutine(CreditMoveYUp());
-                    }
-                    if (CUpDown)
-                    {
-                        Settinging = true;
-                        StartCoroutine(CreditMoveYDown());
-                    }
-                    break;
-
-            }
+            switchMoveX();
         }
         if (!Settinging)
         {
@@ -221,8 +179,55 @@ public class SceneMove : MonoBehaviour
         }
     }
 
+    public void switchMoveX()
+    {
+        switch (MoveX)
+        {
+            case 0:
+                Moving = true;
+                fade.Fade();
+                Invoke(nameof(LoadSceneMap), 2.0f);
+                break;
+            case 1:
+                if (!UpDown)
+                {
+                    Settinging = true;
+                    StartCoroutine(MoveY_Up());
+                }
+                if (UpDown)
+                {
+                    Settinging = false;
+                    StartCoroutine(MoveY_Down());
+                    SVC.Save();
+                }
+                break;
+            case 2:
+                Moving = true;
+                fade.Fade();
+                Invoke("LoadSceneTutorial", 2.0f);
+                break;
+            case 3:
+                End.SetActive(true);
+                GameEnd = true;
+                break;
+            case 4:
+                if (!CUpDown)
+                {
+                    Settinging = false;
+                    StartCoroutine(CreditMoveYUp());
+                }
+                if (CUpDown)
+                {
+                    Settinging = true;
+                    StartCoroutine(CreditMoveYDown());
+                }
+                break;
+        }
+    }
+
     public void GEnd()
     {
+        UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
@@ -237,7 +242,7 @@ public class SceneMove : MonoBehaviour
         ASC.Library();
     }
 
-    private void LoadSceneTutorial()
+    public void LoadSceneTutorial()
     {
         ASC.tutorialScene();
     }

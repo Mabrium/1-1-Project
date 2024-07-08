@@ -12,8 +12,10 @@ public class CameraSS : MonoBehaviour
         float timer = 0;
         while (timer <= ShakeTime)
         {
-            Camera.main.transform.position =
-                (Vector3)Random.insideUnitCircle * ShakeAmount;
+            Vector3 pos = 
+                (Vector2)Random.insideUnitCircle * ShakeAmount;
+            pos.z = -10;
+            Camera.main.transform.position = pos;
             timer += Time.deltaTime;
             yield return null;
         }

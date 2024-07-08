@@ -35,7 +35,7 @@ public class Food : MonoBehaviour
             sw++;
             if (ew > 4) ew = 0;
             if (sw > 4) sw = 0;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.995f);
             Fooood[sw].enabled = false;
         }
     }
@@ -49,7 +49,7 @@ public class Food : MonoBehaviour
             sw++;
             if (ew > 4) ew = 0;
             if (sw > 4) sw = 0;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.995f);
             Fooood[sw].enabled = false;
         }
     }

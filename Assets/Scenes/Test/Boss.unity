@@ -1436,6 +1436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossHp: 100
+  UD: {fileID: 1858913532}
 --- !u!114 &340579219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2248,6 +2249,10 @@ PrefabInstance:
       propertyPath: PM
       value: 
       objectReference: {fileID: 1759849906}
+    - target: {fileID: 568585799037189948, guid: 39ed0619e147d2843b3419382250f442, type: 3}
+      propertyPath: UD
+      value: 
+      objectReference: {fileID: 1948463875}
     - target: {fileID: 2803424041840687215, guid: 39ed0619e147d2843b3419382250f442, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3181,7 +3186,7 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3420,7 +3425,7 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3577,7 +3582,7 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3781,7 +3786,7 @@ PolygonCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4363,6 +4368,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3207969e667f0134288feeff1f80c0ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1858913532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8839425209974971895, guid: a44fd6306d360d944920556dfe9cc3fa, type: 3}
+  m_PrefabInstance: {fileID: 1856787394209866004}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3080e37097930f42958d9e3963dd9ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1884693066
 GameObject:
   m_ObjectHideFlags: 0
@@ -4403,6 +4419,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3207969e667f0134288feeff1f80c0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1948463875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7165033670832389630, guid: a9674d147e4b91e4cb923114355284e4, type: 3}
+  m_PrefabInstance: {fileID: 1747870470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3080e37097930f42958d9e3963dd9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1961022867

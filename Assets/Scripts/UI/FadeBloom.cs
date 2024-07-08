@@ -56,7 +56,7 @@ public class FadeBloom : MonoBehaviour
         if (STARTBLOOM < 60)
         {
             STARTBLOOM += 1;
-            yield return new WaitForSeconds(Time.deltaTime * 4);
+            yield return new WaitForSeconds(Time.deltaTime * 30);
             StartCoroutine(start_fade());
         }
     }
