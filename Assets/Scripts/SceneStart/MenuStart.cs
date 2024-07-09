@@ -6,8 +6,11 @@ public class MenuStart : MonoBehaviour
 {
     public FadeBloom FB;
 
+
     void Start()
     {
+        AudioChange.instance.PlayBGM();
+
         Time.timeScale = 1;
         FB.BloomFade();
     }
