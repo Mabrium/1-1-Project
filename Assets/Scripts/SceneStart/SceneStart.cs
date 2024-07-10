@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuStart : MonoBehaviour
+public class SceneStart : MonoBehaviour
 {
-    public FadeBloom FB;
-
 
     void Start()
     {
-        FB.BloomFade();
+        AudioChange.instance.PlayBGM();
+        Time.timeScale = 1;
     }
 
 }

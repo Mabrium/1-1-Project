@@ -1122,6 +1122,10 @@ PrefabInstance:
       propertyPath: MC
       value: 
       objectReference: {fileID: 994756315}
+    - target: {fileID: 7797443059629293886, guid: 34ca1b98ed5709e45aaeeab3f4ba99aa, type: 3}
+      propertyPath: SVC
+      value: 
+      objectReference: {fileID: 994947204}
     - target: {fileID: 7797443059629293887, guid: 34ca1b98ed5709e45aaeeab3f4ba99aa, type: 3}
       propertyPath: SoundSource
       value: 
@@ -2697,9 +2701,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a74d597ea1639646ac0e55e866b2312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SVC: {fileID: 994947204}
   fade: {fileID: 1797585781}
   ASC: {fileID: 1797585784}
+  SS: {fileID: 970742175}
   Setting: {fileID: 454797146}
   Credit: {fileID: 955929914}
   Move: {fileID: 877889016}
@@ -3158,7 +3162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17286064c3545bd4687842787b1d2a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sound: {fileID: 994947208}
+  Sound: {fileID: 970742173}
 --- !u!1 &977015800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,7 +3489,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 994947204}
+        m_TargetAssemblyTypeName: SoundVolumeChange, Assembly-CSharp
+        m_MethodName: Save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1066260389
 GameObject:
   m_ObjectHideFlags: 0
@@ -5812,6 +5828,7 @@ GameObject:
   - component: {fileID: 1797585782}
   - component: {fileID: 1797585784}
   - component: {fileID: 1797585785}
+  - component: {fileID: 1797585786}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5970,6 +5987,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FB: {fileID: 356945608}
+--- !u!114 &1797585786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797585776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecebf906ed097f6499ca8802fb7cec08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1804647594
 GameObject:
   m_ObjectHideFlags: 0

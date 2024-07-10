@@ -1032,5 +1032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Audio:
   - {fileID: 8300000, guid: c8d8048ff9317b8449adabb90e2a6162, type: 3}
-  - {fileID: 8300000, guid: 01f1fe965ce0ac24e9d16da58de9282b, type: 3}
+  - {fileID: 8300000, guid: d1104526ff2b7074dafd4ff40ab33f76, type: 3}
+  - {fileID: 8300000, guid: 106ee1b86ee97d44887cb10de37e4f2e, type: 3}
+  - {fileID: 8300000, guid: 106ee1b86ee97d44887cb10de37e4f2e, type: 3}
   AS: {fileID: 1876197793}

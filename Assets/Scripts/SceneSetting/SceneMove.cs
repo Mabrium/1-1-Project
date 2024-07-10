@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class SceneMove : MonoBehaviour
 {
-    public SoundVolumeChange SVC;
+    
     public FadeInOut fade;
     public AllSceneChange ASC;
+    public StartingSound SS;
 
     public GameObject Setting;
     public GameObject Credit;
@@ -198,7 +199,8 @@ public class SceneMove : MonoBehaviour
                 {
                     Settinging = false;
                     StartCoroutine(MoveY_Down());
-                    SVC.Save();
+                    SS.StartSound();
+                    AudioChange.instance.LoadSound();
                 }
                 break;
             case 2:

@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public SoundVolumeChange SVC; //음악등 사운드 볼륨 코드 가져오기
-    public ModeChange MC;
 
 
     void Awake()
@@ -22,6 +21,5 @@ public class GameManager : MonoBehaviour
     void LoadData()
     {
         SVC.Load();
-        MC.Load();
     }
 }

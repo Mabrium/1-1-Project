@@ -11,4 +11,9 @@ public class StartingSound : MonoBehaviour
         Sound.volume = PlayerPrefs.GetFloat("musicVolume");
     }
 
+    public void StartSound()
+    {
+        Sound.volume = PlayerPrefs.GetFloat("musicVolume");
+    }
+
 }

@@ -9,28 +9,28 @@ public class AudioChange : MonoBehaviour
 
     public AudioClip[] Audio;
     public AudioSource AS;
+    
 
-    private bool isPlaying;
 
     private void Awake()
     {
         instance = this;
     }
 
-    void Update()
-    {
-        //if(SceneManager.GetActiveScene().name == "Menu")
-        //{
-        //    isPlaying = true;
-        //    Debug.Log("Playing");
-            
-        //}
-    }
+
 
     public void PlayBGM()
     {
-        AS.clip = Audio[0];
+        if (SceneManager.GetActiveScene().name == "Menu") { AS.clip = Audio[0]; }
+        if (SceneManager.GetActiveScene().name == "Library") { AS.clip = Audio[1]; }
+        if (SceneManager.GetActiveScene().name == "Tutorial") { AS.clip = Audio[2]; }
+        if (SceneManager.GetActiveScene().name == "Boss") { AS.clip = Audio[3]; }
         AS.Play();
+    }
+
+    public void LoadSound()
+    {
+        AS.volume = PlayerPrefs.GetFloat("musicVolume");
     }
 
 }
