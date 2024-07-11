@@ -30,13 +30,13 @@ public class ListMove : MonoBehaviour
                     SceneManager.LoadScene("Boss");
                     break;
                 case 2:
-                    StartCoroutine(CS.Shake(0.5f, 0.3f));
+                    StartCoroutine(CS.Shake(0.1f, 0.3f));
                     break;
                 case 3:
-                    StartCoroutine(CS.Shake(0.5f, 0.3f));
+                    StartCoroutine(CS.Shake(0.1f, 0.3f));
                     break;
                 case 4:
-                    StartCoroutine(CS.Shake(0.5f, 0.3f));
+                    StartCoroutine(CS.Shake(0.1f, 0.3f));
                     break;
             }
         }

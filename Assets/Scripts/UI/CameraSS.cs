@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CameraSS : MonoBehaviour
 {
-    public float shakeAmount = 0.5f;
-    public float shakeTime = 0.3f;
 
     public IEnumerator Shake(float ShakeAmount, float ShakeTime)
     {

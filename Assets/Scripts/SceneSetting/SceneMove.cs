@@ -229,7 +229,7 @@ public class SceneMove : MonoBehaviour
 
     public void GEnd()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
