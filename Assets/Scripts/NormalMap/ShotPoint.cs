@@ -24,6 +24,7 @@ public class ShotPoint : MonoBehaviour
 
     private IEnumerator PointChange()
     {
+        yield return new WaitForSeconds(3f);
         while (ShotOk)
         {
             XPoint();
@@ -43,7 +44,7 @@ public class ShotPoint : MonoBehaviour
     {
         PointX[x].gameObject.SetActive(true);
         PointX[x].position = new Vector3(Random.Range(-8, 9), PointX[x].position.y, PointX[x].position.z);
-        print($"{PointX[x].position}");
+        //print($"{PointX[x].position}");
 
     }
 
@@ -51,6 +52,6 @@ public class ShotPoint : MonoBehaviour
     {
         PointY[y].gameObject.SetActive(true);
         PointY[y].position = new Vector3(PointY[y].position.x, Random.Range(-4, 5), PointY[y].position.z);
-        print($"{PointY[y].position}");
+        //print($"{PointY[y].position}");
     }
 }

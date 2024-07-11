@@ -13,7 +13,7 @@ public class PlayerHit : MonoBehaviour
     /// </summary>
     /// <param name="Hit">이 함수는 양수를 이용하여 깎을 값을 설정할 것</param>
     /// <returns></returns>
-    public IEnumerator Hit(int Hit) 
+    public void Hit(int Hit) 
     {
         if (!PM.invincibility)
         {
@@ -29,11 +29,18 @@ public class PlayerHit : MonoBehaviour
             }
             else
             {
-                PM.invincibility = true;
-                yield return new WaitForSeconds(2.0f);
-                PM.invincibility = false;
+                StartCoroutine(fkk());
             }
 
         }
+    }
+
+    private IEnumerator fkk()
+    {
+        print("실행1");
+        PM.invincibility = true;
+        yield return new WaitForSeconds(2.0f);
+        print("실행2");
+        PM.invincibility = false;
     }
 }

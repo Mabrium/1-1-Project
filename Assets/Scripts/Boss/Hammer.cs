@@ -26,7 +26,7 @@ public class Hammer : MonoBehaviour
         else if (number.random == 8) { Atk = 999; }
         if (collision.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(PH.Hit(Atk));
+            PH.Hit(Atk);
             print(Atk);
         }
     }

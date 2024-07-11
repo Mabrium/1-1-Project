@@ -13,7 +13,7 @@ public class BossTaging : MonoBehaviour
     {
         if (collision.CompareTag("Player")) //공격을 했을 때
         {
-            StartCoroutine(PH.Hit(1));
+            PH.Hit(1);
         }
         
     }

@@ -17,4 +17,10 @@ public class ComebackMenu : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("Boss");
     }
+
+    public void ReturnMap1()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Map1");
+    }
 }
