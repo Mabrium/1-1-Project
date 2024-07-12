@@ -25,6 +25,7 @@ public class AudioChange : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Library") { AS.clip = Audio[1]; }
         if (SceneManager.GetActiveScene().name == "Tutorial") { AS.clip = Audio[2]; }
         if (SceneManager.GetActiveScene().name == "Boss") { AS.clip = Audio[3]; }
+        if (SceneManager.GetActiveScene().name == "Map1") { AS.clip = Audio[4]; }
         AS.Play();
     }
 

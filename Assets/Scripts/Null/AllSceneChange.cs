@@ -32,4 +32,8 @@ public class AllSceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("Boss");
     }
+    public void NMMap()
+    {
+        SceneManager.LoadScene("Map1");
+    }
 }

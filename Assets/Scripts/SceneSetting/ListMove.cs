@@ -27,10 +27,10 @@ public class ListMove : MonoBehaviour
                     SceneManager.LoadScene("Tutorial");
                     break;
                 case 1:
-                    SceneManager.LoadScene("Boss");
+                    SceneManager.LoadScene("Map1");
                     break;
                 case 2:
-                    StartCoroutine(CS.Shake(0.1f, 0.3f));
+                    SceneManager.LoadScene("Boss");
                     break;
                 case 3:
                     StartCoroutine(CS.Shake(0.1f, 0.3f));

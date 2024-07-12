@@ -5,6 +5,8 @@ using UnityEngine;
 public class BossColliderNMove : MonoBehaviour
 {
     public Food Fd;
+    public ShotPoint SP;
+
     public GameObject hammer;
     public GameObject food;
     public GameObject Number;
@@ -63,7 +65,6 @@ public class BossColliderNMove : MonoBehaviour
 
     public IEnumerator Change1() //오른쪽 대기상태
     {
-        
         transform.rotation = Quaternion.Euler(0, 0, 0);
         ODSIJF.transform.rotation = Quaternion.Euler(0, 0, 0);
         if (right_D)
@@ -111,6 +112,9 @@ public class BossColliderNMove : MonoBehaviour
     
     public IEnumerator Change2() //오른쪽 음식 던지기
     {
+        SP.patten = 0;
+        SP.ShotOk1 = true;
+        StartCoroutine(SP.PointChange());
         print("오른쪽");
         transform.rotation = Quaternion.Euler(0, 0, 0);
         if (right_T)
@@ -129,10 +133,15 @@ public class BossColliderNMove : MonoBehaviour
             FD.SetActive(false);
             right_T = false;
         }
+        SP.patten = 10;
+        SP.ShotOk1 = false;
         Switch();
     }
     public IEnumerator Change2_1() //왼쪽 음식 던지기
     {
+        SP.patten = 0;
+        SP.ShotOk1 = true;
+        StartCoroutine(SP.PointChange());
         print("왼쪽");
         transform.rotation = Quaternion.Euler(0, 180, 0);
         if (left_T)
@@ -151,6 +160,8 @@ public class BossColliderNMove : MonoBehaviour
             FD.SetActive(false);
             left_T = false;
         }
+        SP.patten = 10;
+        SP.ShotOk1 = false;
         Switch();
     }
 

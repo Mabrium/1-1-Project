@@ -37,10 +37,8 @@ public class PlayerHit : MonoBehaviour
 
     private IEnumerator fkk()
     {
-        print("실행1");
         PM.invincibility = true;
         yield return new WaitForSeconds(2.0f);
-        print("실행2");
         PM.invincibility = false;
     }
 }

@@ -8,7 +8,7 @@ public class BossHP : MonoBehaviour
     public UiDown UD;
     void Start()
     {
-        BossHp = 100;
+        //BossHp = 100;
     }
 
     
